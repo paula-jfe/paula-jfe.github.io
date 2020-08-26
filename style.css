@@ -1,0 +1,120 @@
+        
+        body {
+	        background-color: #87d1f6;
+            background-image: url("https://i.pinimg.com/originals/f6/bf/8b/f6bf8b0a7c196fe029adf004095470c8.png");
+            padding: 0;
+            margin: 0;
+            }
+
+        .meunome {
+	        text-align: center;
+            }
+        
+        a {
+	        text-decoration: none;
+            }
+
+        h1 {
+	        background-color: #87d1f6;
+            color: white;
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+        h2 {
+	        color: #e25c84;
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+        .intro {
+	        background-color: #7561a8;
+            color: white;
+            padding: 15px;
+            width: 52%;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            text-align: center;
+            font-size: 15px;
+            }
+
+        .foto {
+	        position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin: 20px;
+            }
+        
+        #jessica-foto {
+            border-radius: 100%;
+            border: 5px solid #f3e0e8;
+            }
+
+        .habilidades {
+            background-color: #ffffff;
+            color: #e25c84;
+            padding: 5px 15px;
+            width: 52%;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            text-align: center;
+            }
+        
+        .listas {
+            background-color: #ffffff;
+            color:black;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            }
+        
+        .rodape {
+	        
+            font-weight: bold;
+            color: black;
+            padding: 5px;
+            width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            text-align: center;
+            font-size: 18px;
+            }
+
+        .dados {
+            color: grey;
+            font-size: 16px;
+            }
+
+        .botao {
+            background:linear-gradient(to bottom, #ffffff 30%, #f6f6f6 50%);
+            background-color:#ffffff;
+            border-radius:5px;
+            display:inline-block;
+            color:grey;
+            width: 25%;
+            height: 60px;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            text-decoration:none;
+            text-align: center;
+            padding: 10px;
+            line-height: 25px;
+            margin: auto;
+            vertical-align: top;
+        }
+
+       //* .icones {
+            max-width: 50px;
+            max-height: 50px;
+            width: auto;
+            height: auto;
+        }
