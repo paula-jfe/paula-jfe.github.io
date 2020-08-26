@@ -21,6 +21,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
 
+        #conteudo-principal {
+            width: 55.5%;
+            text-align: center;
+            vertical-align: top;
+            margin-left: auto;
+            margin-right: auto;
+            }
+
         h2 {
 	        color: #e25c84;
             font-weight: 600;
@@ -31,13 +39,15 @@
 	        background-color: #7561a8;
             color: white;
             padding: 15px;
-            width: 52%;
+            width: 55%;
             margin-left: auto;
             margin-right: auto;
             font-family: Arial, Helvetica, sans-serif;
             position: relative;
             text-align: center;
             font-size: 15px;
+            float: right;
+            margin: 15px;
             }
 
         .foto {
@@ -45,7 +55,8 @@
             margin-left: auto;
             margin-right: auto;
             text-align: center;
-            margin: 20px;
+            margin: 15px;
+            float: left;
             }
         
         #jessica-foto {
@@ -54,9 +65,10 @@
             }
 
         .habilidades {
+            clear: both;
             background-color: #ffffff;
             color: #e25c84;
-            padding: 5px 15px;
+            padding: 10px;
             width: 52%;
             margin-left: auto;
             margin-right: auto;
@@ -110,6 +122,11 @@
             line-height: 25px;
             margin: auto;
             vertical-align: top;
+        }
+
+        .impar {
+            font-style: italic;
+
         }
 
        //* .icones {
