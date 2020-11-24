@@ -1,137 +1,65 @@
-        
-        body {
-	        background-color: #87d1f6;
-            background-image: url("https://i.pinimg.com/originals/f6/bf/8b/f6bf8b0a7c196fe029adf004095470c8.png");
-            padding: 0;
-            margin: 0;
-            }
+body {
+  background-color: #87d1f6;
+  background-image: url("https://i.pinimg.com/originals/f6/bf/8b/f6bf8b0a7c196fe029adf004095470c8.png");
+  padding: 0;
+  margin: 0;
+	background-size: 100%;
+	height: 100vh;
+}
 
-        .meunome {
-	        text-align: center;
-            }
-        
-        a {
-	        text-decoration: none;
-            }
+main {
+	height: 100vh;
+	align-content: center;
+}
 
-        h1 {
-	        background-color: #87d1f6;
-            color: white;
-            font-weight: 600;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
+h1 {
+  background-color: #87d1f6;
+  color: white;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        #conteudo-principal {
-            width: 55.5%;
-            text-align: center;
-            vertical-align: top;
-            margin-left: auto;
-            margin-right: auto;
-            }
+h2 {
+  color: #e25c84;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        h2 {
-	        color: #e25c84;
-            font-weight: 600;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
+ul {
+	margin-bottom: 0 !important;
+	color: white;
+	font-weight: 700;
+}
 
-        .intro {
-	        background-color: #7561a8;
-            color: white;
-            padding: 15px;
-            width: 55%;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: Arial, Helvetica, sans-serif;
-            position: relative;
-            text-align: center;
-            font-size: 15px;
-            float: right;
-            margin: 15px;
-            }
+p {
+	margin-bottom: 0 !important;
+	padding: 15px;
+	text-align: center;
+}
 
-        .foto {
-	        position: relative;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            margin: 15px;
-            float: left;
-            }
-        
-        #jessica-foto {
-            border-radius: 100%;
-            border: 5px solid #f3e0e8;
-            }
+.jessica-picture {
+  border-radius: 100%;
+	border: 5px solid #f3e0e8;
+	margin-right: 15px;
+}
 
-        .habilidades {
-            clear: both;
-            background-color: #ffffff;
-            color: #e25c84;
-            padding: 10px;
-            width: 52%;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: Arial, Helvetica, sans-serif;
-            position: relative;
-            text-align: center;
-            }
-        
-        .listas {
-            background-color: #ffffff;
-            color:black;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-            }
-        
-        .rodape {
-	        
-            font-weight: bold;
-            color: black;
-            padding: 5px;
-            width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: Arial, Helvetica, sans-serif;
-            position: relative;
-            text-align: center;
-            font-size: 18px;
-            }
+.skills {
+	margin-top: 15px;
+	margin-bottom: 35px;
+}
 
-        .dados {
-            color: grey;
-            font-size: 16px;
-            }
+.buttonFirst {
+	height: 100px;
+	line-height: 80px;
+	min-width: 50px;
+	width: 30vw !important;
+}
 
-        .botao {
-            background:linear-gradient(to bottom, #ffffff 30%, #f6f6f6 50%);
-            background-color:#ffffff;
-            border-radius:5px;
-            display:inline-block;
-            color:grey;
-            width: 25%;
-            height: 60px;
-            font-family:Arial;
-            font-size:15px;
-            font-weight:bold;
-            text-decoration:none;
-            text-align: center;
-            padding: 10px;
-            line-height: 25px;
-            margin: auto;
-            vertical-align: top;
-        }
-
-        .impar {
-            font-style: italic;
-
-        }
-
-       //* .icones {
-            max-width: 50px;
-            max-height: 50px;
-            width: auto;
-            height: auto;
-        }
+.buttons {
+	height: 100px;
+	line-height: 80px;
+	margin-left: 1vw;
+	min-width: 50px;
+	text-align: center;
+	width: 30vw !important;
+}

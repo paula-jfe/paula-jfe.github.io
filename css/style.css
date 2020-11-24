@@ -1,0 +1,100 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  align-self: center;
+  margin: 10px;
+}
+
+h2 {
+  align-self: center;
+  margin: 10px;
+}
+
+h3 {
+  align-self: center;
+  margin: 10px;
+}
+
+.row {
+  margin: 10px;
+}
+
+.olLeft {
+  word-wrap: break-word;
+}
+
+#divOne {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0;
+}
+
+#divTwo {
+  margin: 0;
+  padding: 10px;
+}
+
+#divThree {
+  margin: 0;
+  padding: 10px;
+}
+
+#divFour {
+  margin: 0;
+  padding: 10px;
+}
+
+#divFive {
+  margin: 0;
+  padding: 10px;
+}
+
+#divSix {
+  margin: 0;
+  padding: 10px;
+}
+
+#divSeven {
+  margin: 0;
+  padding: 10px;
+}
+
+img {
+  border: 10px double white;
+  margin: 20px;
+  border-radius: 5%;
+}
+
+ol {
+  margin: 20px;
+}
+
+@media print {
+  .row {
+    display: flex !important; 
+    justify-content: flex-start !important;
+  }
+
+  .col-sm-12, .col-sm-7, .col-sm-5 {
+    align-self: flex-start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    color: black !important;
+    text-align: center !important;
+    background-color: yellow !important;
+  }
+
+  .foto {
+    width: 100% !important;
+  }
+}
+
