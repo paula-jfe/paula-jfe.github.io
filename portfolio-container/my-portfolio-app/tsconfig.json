@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "es2015"],
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*"]
+}
+// This file is used to configure the TypeScript compiler options for the project.
+// It specifies the target ECMAScript version, the libraries to include, and other compiler options.
+// The "include" option specifies the files to include in the compilation process.
+// The "outDir" option specifies the output directory for the compiled files.
+// The "allowJs" option allows JavaScript files to be compiled along with TypeScript files.
+// The "jsx" option specifies the JSX code generation mode.
+// The "moduleResolution" option specifies the module resolution strategy to use.
+// The "esModuleInterop" option enables emit interoperability between CommonJS and ES Modules.
+// The "skipLibCheck" option skips type checking of declaration files.
+// The "forceConsistentCasingInFileNames" option ensures that file names are case-sensitive.
+// The "lib" option specifies the library files to include in the compilation process.
+// The "target" option specifies the ECMAScript version to compile to.

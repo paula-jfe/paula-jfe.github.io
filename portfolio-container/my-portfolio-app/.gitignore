@@ -1,0 +1,63 @@
+# Node modules
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Coverage and testing
+coverage/
+*.lcov
+
+# Storybook
+out/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional lockfiles (keep only one if you prefer)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Chatbase Embed (if script config is in a file)
+chatbase-config.js
+
+# Local preview tools
+*.localhost
+*.preview
+
+# GitHub Pages (optional if deploying from a /docs folder)
+docs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Optional: prevent accidental credential files
+*.key
+*.pem
+*.crt
+*.p12
