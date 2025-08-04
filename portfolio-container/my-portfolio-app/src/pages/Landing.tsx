@@ -1,18 +1,17 @@
 import React from 'react';
-import whiskDeveloperVideo from '../assets/videos/whisk_developer.mp4';
+
 import Header from '../components/Header';
+import HeroBanner from '../components/HeroBanner';
 
 const Landing = () => {
     return (
         <div className="landing-page">
             <Header />
-            <section className="gradient-box">
-                <video preload="auto" autoPlay muted loop playsInline className="hero-video">
-                    <source src={whiskDeveloperVideo} type="video/mp4" />
-                </video>
-                <h1>Welcome to the Landing Page</h1>
-                <p>This is the starting point of our application.</p>
+            <section id="herobanner" className="gradient-box">
+                <HeroBanner />
             </section>
+            <section id="about"></section>
+            <section id="contact"></section>
         </div>
     );
 };

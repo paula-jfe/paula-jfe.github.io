@@ -16,12 +16,26 @@ body {
     font-family: 'Roboto', sans-serif;
     height: 3800px;
     position: relative;
-    /* flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-left: 80px;
-    padding-right: 80px; */
     z-index: -1;
+}
+
+.fancy-button {
+    align-items: center;
+    background-color: #b940a7;
+    border: none;
+    border-radius: 0.2rem;
+    color: #fdf6fc;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 12px 24px;
+    position: relative;
+    transition: padding-right 0.3s ease;
+}
+
+.fancy-button:hover {
+    padding-right: 48px;
 }
 
 .header {
@@ -29,10 +43,9 @@ body {
     background: #fdf6fc;
     display: flex;
     flex-direction: row;
+    gap: 1rem;
     height: 80px;
     justify-content: space-between;
-    padding-left: 80px;
-    padding-right: 80px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -58,10 +71,23 @@ body {
 }
 
 .gradient-box {
+    height: 780px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.gradient-box::before {
     background: linear-gradient(45deg, #7797dd 0%, #a45cb9 30%, #b940a7 60%, #9747ff 100%);
     color: #fdf6fc;
-    height: 780px;
+    content: '';
+    inset: 0;
+    position: absolute;
     opacity: 0.85;
-    overflow: hidden;
-    position: relative;
+    z-index: -1;
+}
+
+.padding-x-5p {
+    padding-left: 5%;
+    padding-right: 5%;
 }

@@ -5,13 +5,14 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Header = () => {
     return (
-        <header className="header">
+        <header className="header padding-x-5p">
             <div
                 style={{
-                    cursor: 'pointer',
                     alignItems: 'center',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexShrink: 0,
                     justifyContent: 'center',
-                    alignSelf: 'center',
                 }}
             >
                 <a href="/" className="">
@@ -20,27 +21,37 @@ const Header = () => {
             </div>
             <div
                 style={{
-                    cursor: 'pointer',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    alignSelf: 'center',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexShrink: 0,
+                    gap: '1rem',
+                    justifyContent: 'flex-end',
                 }}
             >
-                <h1 className="text-3xl font-bold underline decoration-sky-500">Hello world!</h1>
                 <button
                     type="button"
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+                    className="bg-transparent text-24b text-perano-700 font-roboto"
                 >
                     About
                 </button>
                 <button
                     type="button"
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+                    className="bg-transparent text-24b text-perano-700 font-roboto"
                 >
                     Contact
                 </button>
-                <GitHubIcon />
-                <LinkedInIcon />
+                <GitHubIcon
+                    fontSize="inherit"
+                    className="w-8 h-8 text-perano-700"
+                    style={{ width: '35px', height: '35px' }}
+                />
+                <LinkedInIcon
+                    fontSize="inherit"
+                    className="w-8 h-8 text-perano-700 scale-[1.34]"
+                    style={{ width: '32px', height: '32px' }}
+                />
             </div>
         </header>
     );
