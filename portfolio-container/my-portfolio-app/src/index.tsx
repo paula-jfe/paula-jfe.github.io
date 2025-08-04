@@ -1,10 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Landing from './pages/Landing';
+import './index.css';
 
 const App = () => (
-  <h1 className="text-2xl text-blue-600">Microfrontend Container</h1>
+    <div>
+        <Landing />
+    </div>
 );
 
-const root = ReactDOM.createRoot(document.getElementById("root")!);
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<App />);

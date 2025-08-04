@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-video {
+    background: linear-gradient(90deg, #252931 0%, #5f5353 100%);
+    height: 850px;
+    left: 0;
+    object-fit: cover;
+    opacity: 0.1;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.header {
+    background: #fdf6fc;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.landing-page {
+    background: linear-gradient(45deg, #fdf6fc 0%, #f9dfaf 60%);
+    position: relative;
+    height: 3800px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.gradient-box {
+    background: linear-gradient(45deg, #7797dd 0%, #a45cb9 30%, #b940a7 60%, #9747ff 100%);
+    color: #fdf6fc;
+    height: 780px;
+    opacity: 0.85;
+    overflow: hidden;
+    position: relative;
+}
