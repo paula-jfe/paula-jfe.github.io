@@ -11,6 +11,34 @@
     padding: 0;
 }
 
+body {
+    background: linear-gradient(45deg, #fdf6fc 0%, #f9dfaf 60%);
+    font-family: 'Roboto', sans-serif;
+    height: 3800px;
+    position: relative;
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 80px;
+    padding-right: 80px; */
+    z-index: -1;
+}
+
+.header {
+    align-items: center;
+    background: #fdf6fc;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    justify-content: space-between;
+    padding-left: 80px;
+    padding-right: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
 .hero-video {
     background: linear-gradient(90deg, #252931 0%, #5f5353 100%);
     height: 850px;
@@ -23,23 +51,10 @@
     width: 100%;
 }
 
-.header {
-    background: #fdf6fc;
-    height: 80px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-}
-
-.landing-page {
-    background: linear-gradient(45deg, #fdf6fc 0%, #f9dfaf 60%);
-    position: relative;
-    height: 3800px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
+.logo {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
 }
 
 .gradient-box {

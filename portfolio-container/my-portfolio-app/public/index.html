@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="/dist/bundle.js"></script>
-    <script>
-      (function () {
-        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-          window.chatbase = (...arguments) => {
-            if (!window.chatbase.q) {
-              window.chatbase.q = [];
-            }
-            window.chatbase.q.push(arguments);
-          };
-          window.chatbase = new Proxy(window.chatbase, {
-            get(target, prop) {
-              if (prop === "q") {
-                return target.q;
-              }
-              return (...args) => target(prop, ...args);
-            },
-          });
-        }
-        const onLoad = function () {
-          const script = document.createElement("script");
-          script.src = "https://www.chatbase.co/embed.min.js";
-          script.id = "bcTCm_3pzYcz1XWvFQ9qd";
-          script.domain = "www.chatbase.co";
-          document.body.appendChild(script);
-        };
-        if (document.readyState === "complete") {
-          onLoad();
-        } else {
-          window.addEventListener("load", onLoad);
-        }
-      })();
-    </script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="/dist/bundle.js"></script>
+        <script>
+            (function () {
+                if (!window.chatbase || window.chatbase('getState') !== 'initialized') {
+                    window.chatbase = (...arguments) => {
+                        if (!window.chatbase.q) {
+                            window.chatbase.q = [];
+                        }
+                        window.chatbase.q.push(arguments);
+                    };
+                    window.chatbase = new Proxy(window.chatbase, {
+                        get(target, prop) {
+                            if (prop === 'q') {
+                                return target.q;
+                            }
+                            return (...args) => target(prop, ...args);
+                        },
+                    });
+                }
+                const onLoad = function () {
+                    const script = document.createElement('script');
+                    script.src = 'https://www.chatbase.co/embed.min.js';
+                    script.id = 'bcTCm_3pzYcz1XWvFQ9qd';
+                    script.domain = 'www.chatbase.co';
+                    document.body.appendChild(script);
+                };
+                if (document.readyState === 'complete') {
+                    onLoad();
+                } else {
+                    window.addEventListener('load', onLoad);
+                }
+            })();
+        </script>
+    </body>
 </html>
