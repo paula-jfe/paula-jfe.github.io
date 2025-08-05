@@ -87,6 +87,36 @@ body {
     z-index: -1;
 }
 
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.marquee-content {
+    display: flex;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 1rem;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 .padding-x-5p {
     padding-left: 5%;
     padding-right: 5%;

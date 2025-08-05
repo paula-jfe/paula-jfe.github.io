@@ -3,6 +3,8 @@ module.exports = {
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
+            keyframes: {},
+            animation: {},
             fontFamily: {
                 roboto: ['Roboto', 'sans-serif'],
             },
