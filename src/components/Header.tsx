@@ -15,7 +15,7 @@ const Header = () => {
                     justifyContent: 'center',
                 }}
             >
-                <a href="/" className="">
+                <a href="#herobanner" className="hover:scale-110 transition-transform">
                     <img src={logo} alt="J smile logo" style={{ width: '40px', height: '40px' }} />
                 </a>
             </div>
@@ -32,26 +32,40 @@ const Header = () => {
             >
                 <button
                     type="button"
-                    className="bg-transparent text-24b text-perano-700 font-roboto"
+                    className="hover:scale-110 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
                 >
                     About
                 </button>
                 <button
                     type="button"
-                    className="bg-transparent text-24b text-perano-700 font-roboto"
+                    className="hover:scale-110 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
                 >
                     Contact
                 </button>
-                <GitHubIcon
-                    fontSize="inherit"
-                    className="w-8 h-8 text-perano-700"
-                    style={{ width: '35px', height: '35px' }}
-                />
-                <LinkedInIcon
-                    fontSize="inherit"
-                    className="w-8 h-8 text-perano-700 scale-[1.34]"
-                    style={{ width: '32px', height: '32px' }}
-                />
+                <a
+                    href="https://github.com/paula-jfe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-110 transition-transform"
+                >
+                    <GitHubIcon
+                        fontSize="inherit"
+                        className="w-8 h-8 text-perano-700"
+                        style={{ width: '35px', height: '35px' }}
+                    />
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/jessica-ladislau/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-110 transition-transform"
+                >
+                    <LinkedInIcon
+                        fontSize="inherit"
+                        className="w-8 h-8 text-perano-700 scale-[1.34]"
+                        style={{ width: '32px', height: '32px' }}
+                    />
+                </a>
             </div>
         </header>
     );

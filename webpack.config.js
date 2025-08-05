@@ -36,7 +36,7 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'postcss-loader'],
             },
             {
-                test: /\.(png|jpe?g|gif|mp4|webm|ogg|svg)$/,
+                test: /\.(png|jpe?g|gif|mp4|webm|ogg|svg|pdf)$/,
                 type: 'asset/resource',
                 generator: {
                     filename: 'videos/[name][hash][ext]',

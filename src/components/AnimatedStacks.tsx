@@ -18,8 +18,8 @@ import typescript from '../assets/icons/typescript.svg';
 const AnimatedStacks = () => {
     return (
         <div className="marquee-container gap-12 h-[166px]">
-            <div className="marquee-track flex">
-                <div className="marquee-content flex gap-12 pt-12 pb-12">
+            <div className="marquee-track">
+                <div className="marquee-content gap-12 pt-12 pb-12">
                     <img key="1" src={figma} alt="Figma Icon" style={{ height: '70px' }} />
                     <img key="2" src={sql} alt="SQL Icon" style={{ height: '70px' }} />
                     <img key="3" src={node} alt="Node Icon" style={{ height: '70px' }} />

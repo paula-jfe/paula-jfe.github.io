@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../components/Header';
 import HeroBanner from '../components/HeroBanner';
 import AnimatedStacks from '../components/AnimatedStacks';
+import PersonalInfo from '../components/PersonalInfo';
 
 const Landing = () => {
     return (
@@ -13,8 +14,9 @@ const Landing = () => {
             </section>
             <section id="about">
                 <AnimatedStacks />
+                {/* <PersonalInfo /> */}
             </section>
-            <section id="contact"></section>
+            {/* <section id="contact" className="gradient-box"></section> */}
         </div>
     );
 };
