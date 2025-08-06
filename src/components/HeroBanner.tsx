@@ -16,7 +16,13 @@ const HeroBanner = () => {
 
     return (
         <div className="flex flex-col items-center justify-end h-[780px] padding-x-5p gap-8 pb-8">
-            <video preload="auto" autoPlay muted loop className="hero-video">
+            <video
+                preload="auto"
+                autoPlay
+                muted
+                loop
+                className="opacity-50 absolute top-0 left-0 w-full h-full object-cover pointer-events-none -z-10"
+            >
                 <source src={whiskDeveloperVideo} type="video/mp4" />
             </video>
             <div className="hero-content">
