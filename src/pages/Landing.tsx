@@ -14,7 +14,7 @@ const Landing = () => {
             </section>
             <section id="about">
                 <AnimatedStacks />
-                {/* <PersonalInfo /> */}
+                <PersonalInfo />
             </section>
             {/* <section id="contact" className="gradient-box"></section> */}
         </div>

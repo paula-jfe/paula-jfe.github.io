@@ -19,6 +19,8 @@ module.exports = {
                 h6: ['24px', { lineHeight: '1', fontWeight: '700' }],
                 '24b': ['24px', { lineHeight: '1.4', fontWeight: '700' }],
                 24: ['24px', { lineHeight: '1.4', fontWeight: '400' }],
+                '20b': ['20px', { lineHeight: '1.4', fontWeight: '700' }],
+                20: ['20px', { lineHeight: '1.4', fontWeight: '400' }],
                 '18b': ['18px', { lineHeight: '1.4', fontWeight: '700' }],
                 18: ['18px', { lineHeight: '1.4', fontWeight: '400' }],
                 '16b': ['16px', { lineHeight: '1.4', fontWeight: '700' }],

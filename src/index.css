@@ -102,12 +102,6 @@ body {
     display: flex;
 }
 
-.icon {
-    width: 2rem;
-    height: 2rem;
-    margin: 0 1rem;
-}
-
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -118,6 +112,10 @@ body {
 }
 
 .padding-x-5p {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.text-card-body {
+    line-height: 2 !important;
 }

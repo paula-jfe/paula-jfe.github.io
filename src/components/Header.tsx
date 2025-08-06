@@ -15,7 +15,7 @@ const Header = () => {
                     justifyContent: 'center',
                 }}
             >
-                <a href="#herobanner" className="hover:scale-110 transition-transform">
+                <a href="#herobanner" className="hover:scale-105 transition-transform">
                     <img src={logo} alt="J smile logo" style={{ width: '40px', height: '40px' }} />
                 </a>
             </div>
@@ -32,13 +32,13 @@ const Header = () => {
             >
                 <button
                     type="button"
-                    className="hover:scale-110 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
                 >
                     About
                 </button>
                 <button
                     type="button"
-                    className="hover:scale-110 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
                 >
                     Contact
                 </button>
@@ -46,7 +46,7 @@ const Header = () => {
                     href="https://github.com/paula-jfe"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:scale-110 transition-transform"
+                    className="hover:scale-105 transition-transform"
                 >
                     <GitHubIcon
                         fontSize="inherit"
@@ -58,7 +58,7 @@ const Header = () => {
                     href="https://www.linkedin.com/in/jessica-ladislau/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:scale-110 transition-transform"
+                    className="hover:scale-105 transition-transform"
                 >
                     <LinkedInIcon
                         fontSize="inherit"
