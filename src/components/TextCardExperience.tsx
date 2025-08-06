@@ -14,8 +14,8 @@ const TextCardExperience = () => {
                 </li>
                 <li>
                     I've worked in global teams delivering micro-frontends, proposing{' '}
-                    <span className="font-extrabold text-biloba_flower-700">UX</span>
-                    improvements, integrating{' '}
+                    <span className="font-extrabold text-biloba_flower-700">UX</span> improvements,
+                    integrating{' '}
                     <span className="font-extrabold text-biloba_flower-700">
                         complex data flows and API's
                     </span>
@@ -29,6 +29,11 @@ const TextCardExperience = () => {
                     .
                 </li>
             </ul>
+            <p className="text-justify list-disc font-roboto text-sm md:text-base lg:text-lg pt-4 text-perano-700 font-medium">
+                Legally authorized to work in the U.S. under an{' '}
+                <span className="font-extrabold text-biloba_flower-700">L-2s visa</span>, working
+                from the Pacific Time Zone.
+            </p>
         </div>
     );
 };
