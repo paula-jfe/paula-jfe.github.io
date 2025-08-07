@@ -6,7 +6,7 @@ const QualityCard = ({ children, text, className = '', ...props }) => {
             <div
                 className={
                     className +
-                    ' hover:scale-105 transition-transform min-h-120 flex flex-col items-center justify-center'
+                    ' hover:scale-105 transition-transform min-h-120 flex flex-col min-w-[134px] flex-1 items-center justify-center'
                 }
             >
                 <div>{children}</div>
