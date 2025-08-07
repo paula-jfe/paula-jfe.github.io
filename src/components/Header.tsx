@@ -32,13 +32,13 @@ const Header = () => {
             >
                 <button
                     type="button"
-                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
                 >
                     About
                 </button>
                 <button
                     type="button"
-                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 font-roboto"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
                 >
                     Contact
                 </button>

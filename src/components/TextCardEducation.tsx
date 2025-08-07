@@ -4,7 +4,7 @@ const TextCardEducation = () => {
     return (
         <div className=" border-8 border-yellow_orange-50 rounded-[0.2rem] bg-yellow_orange-100 flex flex-col items-start justify-start p-8 min-h-80">
             <p className="text-light_orchid-600 text-h4">Education</p>
-            <ul className="text-card-body text-justify list-disc pl-5 pt-4 font-roboto text-sm md:text-base lg:text-lg text-perano-700 font-medium">
+            <ul className="text-card-body text-justify list-disc pl-5 pt-4 text-sm md:text-base lg:text-lg text-perano-700 font-medium">
                 <li>
                     Master's in{' '}
                     <span className="font-extrabold text-biloba_flower-700">
@@ -28,7 +28,7 @@ const TextCardEducation = () => {
                     started my passion to deliver user centered solutions.
                 </li>
             </ul>
-            <p className="text-justify list-disc font-roboto text-sm md:text-base lg:text-lg pt-4 text-perano-700 font-medium">
+            <p className="text-justify list-disc text-sm md:text-base lg:text-lg pt-4 text-perano-700 font-medium">
                 My academic path blends tech with{' '}
                 <span className="font-extrabold text-biloba_flower-700">
                     user focused problem solving

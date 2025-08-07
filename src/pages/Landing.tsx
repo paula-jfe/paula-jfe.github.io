@@ -5,10 +5,11 @@ import HeroBanner from '../components/HeroBanner';
 import AnimatedStacks from '../components/AnimatedStacks';
 import PersonalInfo from '../components/PersonalInfo';
 import Qualities from '../components/Qualities';
+import HowITurn from '../components/HowITurn';
 
 const Landing = () => {
     return (
-        <div className="landing-page">
+        <div className="landing-page font-roboto">
             <Header />
             <section id="herobanner" className="gradient-box">
                 <HeroBanner />
@@ -17,6 +18,7 @@ const Landing = () => {
                 <AnimatedStacks />
                 <PersonalInfo />
                 <Qualities />
+                <HowITurn />
             </section>
             {/* <section id="contact" className="gradient-box"></section> */}
         </div>

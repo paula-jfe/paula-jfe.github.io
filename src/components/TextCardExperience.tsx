@@ -4,7 +4,7 @@ const TextCardExperience = () => {
     return (
         <div className="border-8 border-yellow_orange-50 rounded-[0.2rem] bg-yellow_orange-100 flex flex-col items-start justify-start p-8 min-h-80">
             <p className="text-light_orchid-600 text-h4">Experience</p>
-            <ul className="text-card-body text-justify list-disc pl-5 pt-4 font-roboto text-sm md:text-base lg:text-lg text-perano-700 font-medium">
+            <ul className="text-card-body text-justify list-disc pl-5 pt-4 text-sm md:text-base lg:text-lg text-perano-700 font-medium">
                 <li>
                     Software Engineer with 4+ years of experience building{' '}
                     <span className="font-extrabold text-biloba_flower-700">
@@ -29,7 +29,7 @@ const TextCardExperience = () => {
                     .
                 </li>
             </ul>
-            <p className="text-justify list-disc font-roboto text-sm md:text-base lg:text-lg pt-4 text-perano-700 font-medium">
+            <p className="text-justify list-disc text-sm md:text-base lg:text-lg pt-4 text-perano-700 font-medium">
                 Legally authorized to work in the U.S. under an{' '}
                 <span className="font-extrabold text-biloba_flower-700">L-2s visa</span>, working
                 from the Pacific Time Zone.

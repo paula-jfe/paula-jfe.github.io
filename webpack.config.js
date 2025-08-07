@@ -1,7 +1,10 @@
 const path = require('path');
+const isDevelopment = process.env.NODE_ENV !== 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
+    mode: isDevelopment ? 'development' : 'production',
     entry: './src/index.tsx',
     output: {
         filename: 'bundle.js',
@@ -29,6 +32,11 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
+                    options: {
+                        plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(
+                            Boolean,
+                        ),
+                    },
                 },
             },
             {
@@ -50,5 +58,6 @@ module.exports = {
             favicon: './public/favicon.ico',
             minify: false,
         }),
-    ],
+        isDevelopment && new ReactRefreshWebpackPlugin(),
+    ].filter(Boolean),
 };

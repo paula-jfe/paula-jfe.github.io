@@ -31,7 +31,7 @@ const HeroBanner = () => {
             <div className="hero-content">
                 <p className="text-center text-h5 text-light_orchid-200">Software Engineer</p>
             </div>
-            <AnimatedButton onClickFunction={downloadArquivo} text="Download Resume">
+            <AnimatedButton onClickFunction={downloadArquivo} text="Download resume">
                 {
                     <DownloadIcon
                         fontSize="inherit"
