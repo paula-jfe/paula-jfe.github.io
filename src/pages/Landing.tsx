@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import HeroBanner from '../components/HeroBanner';
 import AnimatedStacks from '../components/AnimatedStacks';
 import PersonalInfo from '../components/PersonalInfo';
+import Qualities from '../components/Qualities';
 
 const Landing = () => {
     return (
@@ -15,6 +16,7 @@ const Landing = () => {
             <section id="about">
                 <AnimatedStacks />
                 <PersonalInfo />
+                <Qualities />
             </section>
             {/* <section id="contact" className="gradient-box"></section> */}
         </div>
