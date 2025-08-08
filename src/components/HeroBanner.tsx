@@ -21,7 +21,7 @@ const HeroBanner = () => {
                 autoPlay
                 muted
                 loop
-                className="opacity-50 absolute top-0 left-0 w-full h-full object-cover pointer-events-none -z-10"
+                className="opacity-50 absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none -z-10"
             >
                 <source src={whiskDeveloperVideo} type="video/mp4" />
             </video>

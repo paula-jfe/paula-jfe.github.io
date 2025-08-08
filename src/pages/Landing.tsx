@@ -6,6 +6,7 @@ import AnimatedStacks from '../components/AnimatedStacks';
 import PersonalInfo from '../components/PersonalInfo';
 import Qualities from '../components/Qualities';
 import HowITurn from '../components/HowITurn';
+import Feedback from '../components/Feedback';
 
 const Landing = () => {
     return (
@@ -19,6 +20,7 @@ const Landing = () => {
                 <PersonalInfo />
                 <Qualities />
                 <HowITurn />
+                <Feedback />
             </section>
             {/* <section id="contact" className="gradient-box"></section> */}
         </div>

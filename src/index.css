@@ -14,7 +14,7 @@
 body {
     background: linear-gradient(45deg, #fdf6fc 0%, #f9dfaf 60%);
     font-family: 'Roboto', sans-serif;
-    height: 3800px;
+    height: 100%;
     position: relative;
     z-index: -1;
 }
@@ -127,6 +127,37 @@ body {
         padding-left: 12%;
         padding-right: 12%;
     }
+}
+
+.scroll-alignment-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.scroll-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 36px;
+    scroll-padding-right: 36px;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-content {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+}
+
+.scroll-item {
+    flex-shrink: 0;
+    scroll-snap-align: start;
 }
 
 .text-card-body {

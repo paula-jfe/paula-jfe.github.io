@@ -10,7 +10,7 @@ const HowITurnArrow = ({ children, title, text, color, ...props }) => {
                 <div className="relative">
                     <div>{children}</div>
                     <p
-                        className={`text-xs md:text-sm lg:text-base absolute top-1/2 left-1/2 -translate-x-[61%] -translate-y-1/2 text-${color}-50 text-sm font-semibold text-center pointer-events-none`}
+                        className={`text-xs md:text-sm lg:text-base absolute top-1/2 left-1/2 -translate-x-[61%] -translate-y-1/2 text-${color}-50 font-semibold text-center pointer-events-none`}
                     >
                         {text}
                     </p>

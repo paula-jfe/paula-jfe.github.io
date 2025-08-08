@@ -11,7 +11,7 @@ import HowITurnArrow from './HowITurnArrow';
 
 const HowITurn = () => {
     return (
-        <div className="relative  gap-12 min-h-[166px] padding-x-5p">
+        <div className="relative gap-12 min-h-[166px] padding-x-5p">
             <div className="absolute top-1/2 left-0 w-full h-full -z-10">
                 <svg
                     className="w-full h-auto block"
@@ -24,8 +24,8 @@ const HowITurn = () => {
                     <path
                         d="M-220 14.7006C-13.5502 -20.8015 306.839 68.3681 513.811 77.4494C720.784 86.5307 1013.47 -20.141 1173.93 9.08622C1334.38 38.3134 1413.31 87.8532 1660 60.4412"
                         stroke="#FEF9EE"
-                        stroke-width="10"
-                        vector-effect="non-scaling-stroke"
+                        strokeWidth="10"
+                        vectorEffect="non-scaling-stroke"
                     />
                 </svg>
             </div>
