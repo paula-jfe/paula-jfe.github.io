@@ -3,6 +3,8 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
+console.log(`Running in ${isDevelopment ? 'development' : 'production'} mode`);
+
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
     entry: './src/index.tsx',
