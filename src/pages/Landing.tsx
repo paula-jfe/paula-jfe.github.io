@@ -6,7 +6,6 @@ import AnimatedStacks from '../components/AnimatedStacks';
 import PersonalInfo from '../components/PersonalInfo';
 import Qualities from '../components/Qualities';
 import HowITurn from '../components/HowITurn';
-import Feedback from '../components/Feedback';
 import FeedbackCarousel from '../components/FeedbackCarousel';
 
 const Landing = () => {
