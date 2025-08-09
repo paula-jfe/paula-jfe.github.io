@@ -70,6 +70,9 @@ const FeedbackCarousel = () => {
             startScroll = 0;
 
         const down = (e) => {
+            /* console.log('down', '1');
+            if (e.pointerType === 'touch') return;
+            console.log('down', '2'); */
             isDown = true;
             el.classList.add('cursor-grabbing');
             startX = e.clientX ?? e.touches?.[0]?.clientX;
@@ -119,9 +122,11 @@ const FeedbackCarousel = () => {
             <p className="text-light_orchid-600 text-center text-h4 pb-24">
                 What people say about me
             </p>
+            {/* flex items-center gap-4 overflow-x-auto scrollbar-hide cursor-grab touch-pan-y Jessica*/}
+            {/* className="flex items-center gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory -webkit-overflow-scrolling-touch cursor-grab touch-pan-y no-select" hybrid */}
             <div
                 ref={scrollerRef}
-                className="flex items-center gap-4 overflow-x-auto scrollbar-hide cursor-grab touch-pan-y"
+                className="flex items-center overflow-x-auto scrollbar-hide snap-x snap-mandatory snap-center md:snap-none -webkit-overflow-scrolling-touch gap-4 no-select"
             >
                 <ArrowForwardIosIcon
                     className="animate-bounce"
@@ -141,11 +146,10 @@ const FeedbackCarousel = () => {
                                 className="w-[288px] h-[224px] md:w-[412px] md:h-[316px] object-cover"
                             />
                         </FeedbackCard>
-
-                        <div className="p-4">
+                        {/* <div className="p-4">
                             <h3 className="text-lg font-bold">Card {index + 1}</h3>
                             <p className="text-gray-500">Description here</p>
-                        </div>
+                        </div> */}
                     </div>
                 ))}
                 <ArrowBackIosIcon

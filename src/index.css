@@ -196,3 +196,8 @@ body {
 .no-select {
     user-select: none;
 }
+
+/* Smooth momentum scroll on iOS Safari */
+.-webkit-overflow-scrolling-touch {
+    -webkit-overflow-scrolling: touch;
+}
