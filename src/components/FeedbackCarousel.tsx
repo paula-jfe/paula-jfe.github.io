@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import FeedbackCard from './FeedbackCard';
 import feedbackComponent from '../assets/pictures/feedback_component.svg';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -39,21 +39,23 @@ const feedbackArray = [
 ];
 
 const FeedbackCarousel = () => {
-    const scrollerRef = useRef(null);
-    const cardRef = useRef(null);
+    const scrollerRef = useRef<HTMLDivElement>(null);
+    const cardRef = useRef<HTMLDivElement>(null);
 
-    // Auto-calculate padding so first/last card peek perfectly
+    const [isDragging, setIsDragging] = useState(false);
+    const startXRef = useRef(0);
+    const scrollLeftRef = useRef(0);
+
     useEffect(() => {
-        const el = scrollerRef.current;
+        const element = scrollerRef.current;
         const card = cardRef.current;
-        if (!el || !card) return;
+        if (!element || !card) return;
 
         const setPeek = () => {
             const cardWidth = card.getBoundingClientRect().width;
             const peek = Math.min((window.innerWidth - cardWidth) / 4, cardWidth / 4);
-            /* const peek = Math.max((window.innerWidth - cardWidth) / 2, 0); */
-            el.style.paddingLeft = `${peek}px`;
-            el.style.paddingRight = `${peek}px`;
+            element.style.paddingLeft = `${peek}px`;
+            element.style.paddingRight = `${peek}px`;
         };
 
         setPeek();
@@ -61,72 +63,104 @@ const FeedbackCarousel = () => {
         return () => window.removeEventListener('resize', setPeek);
     }, []);
 
-    // Drag-to-scroll
     useEffect(() => {
-        const el = scrollerRef.current;
-        if (!el) return;
+        const element = scrollerRef.current;
+        if (!element) return;
+
+        // Adjust the initial scrollLeft — for example, 2 cards to the right
+        // If each card is 288px wide + gap, calculate:
+        const cardWidth = 288;
+        const gap = 16;
+        const initialScroll = (cardWidth + gap) * 2; // Advance two cards
+
+        element.scrollLeft = initialScroll;
+    }, []);
+
+    const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>): void => {
+        const element = scrollerRef.current;
+        if (!element) return;
+
+        setIsDragging(true);
+        element.classList.add('cursor-grabbing');
+
+        startXRef.current = e.clientX;
+        scrollLeftRef.current = element.scrollLeft;
+
+        element.setPointerCapture(e.pointerId);
+    };
+
+    const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>): void => {
+        if (!isDragging) return;
+        const element = scrollerRef.current;
+        if (!element) return;
+
+        const walk = e.clientX - startXRef.current;
+        element.scrollLeft = scrollLeftRef.current - walk;
+    };
+
+    const handlePointerUpOrCancel = (e: React.PointerEvent<HTMLDivElement>): void => {
+        const element = scrollerRef.current;
+        if (!element) return;
+
+        setIsDragging(false);
+        element.classList.remove('cursor-grabbing');
+        element.releasePointerCapture(e.pointerId);
+    };
+
+    /* useEffect(() => {
+        const element = scrollerRef.current;
+        if (!element) return;
         let isDown = false,
             startX = 0,
             startScroll = 0;
 
-        const down = (e) => {
-            /* console.log('down', '1');
-            if (e.pointerType === 'touch') return;
-            console.log('down', '2'); */
+        const down = (event: PointerEvent) => {
             isDown = true;
-            el.classList.add('cursor-grabbing');
-            startX = e.clientX ?? e.touches?.[0]?.clientX;
-            startScroll = el.scrollLeft;
-            if (e.pointerId) el.setPointerCapture?.(e.pointerId);
-        };
-        const move = (e) => {
-            if (!isDown) return;
-            const x = e.clientX ?? e.touches?.[0]?.clientX;
-            const walk = x - startX;
-            el.scrollLeft = startScroll - walk;
-        };
-        const up = (e) => {
-            isDown = false;
-            el.classList.remove('cursor-grabbing');
-            if (e.pointerId) el.releasePointerCapture?.(e.pointerId);
+            element.classList.add('cursor-grabbing');
+            startX = event.clientX ?? event.touches?.[0]?.clientX;
+            startScroll = element.scrollLeft;
+            if (event.pointerId) element.setPointerCapture?.(event.pointerId);
         };
 
-        el.addEventListener('pointerdown', down);
-        el.addEventListener('pointermove', move);
+        const move = (event: PointerEvent) => {
+            if (!isDown) return;
+            const x = event.clientX ?? e.touches?.[0]?.clientX;
+            const walk = x - startX;
+            element.scrollLeft = startScroll - walk;
+        };
+
+        const up = (event: PointerEvent) => {
+            isDown = false;
+            element.classList.remove('cursor-grabbing');
+            if (event.pointerId) element.releasePointerCapture?.(event.pointerId);
+        };
+
+        element.addEventListener('pointerdown', down);
+        element.addEventListener('pointermove', move);
         window.addEventListener('pointerup', up);
-        el.addEventListener('pointercancel', up);
+        element.addEventListener('pointercancel', up);
 
         return () => {
-            el.removeEventListener('pointerdown', down);
-            el.removeEventListener('pointermove', move);
+            element.removeEventListener('pointerdown', down);
+            element.removeEventListener('pointermove', move);
             window.removeEventListener('pointerup', up);
-            el.removeEventListener('pointercancel', up);
+            element.removeEventListener('pointercancel', up);
         };
-    }, []);
-
-    useEffect(() => {
-        const el = scrollerRef.current;
-        if (!el) return;
-
-        // Ajusta o scrollLeft inicial — por exemplo, 2 cards para a direita
-        // Se cada card tem largura 288px + gap (digamos gap 16px), calcula:
-        const cardWidth = 288;
-        const gap = 16;
-        const initialScroll = (cardWidth + gap) * 2; // Avança 2 cards
-
-        el.scrollLeft = initialScroll;
-    }, []);
+    }, []); */
 
     return (
         <div className="py-12 select-none">
             <p className="text-light_orchid-600 text-center text-h4 pb-24">
                 What people say about me
             </p>
-            {/* flex items-center gap-4 overflow-x-auto scrollbar-hide cursor-grab touch-pan-y Jessica*/}
-            {/* className="flex items-center gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory -webkit-overflow-scrolling-touch cursor-grab touch-pan-y no-select" hybrid */}
             <div
                 ref={scrollerRef}
-                className="flex items-center overflow-x-auto scrollbar-hide snap-x snap-mandatory snap-center md:snap-none -webkit-overflow-scrolling-touch gap-4 no-select"
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUpOrCancel}
+                onPointerCancel={handlePointerUpOrCancel}
+                onPointerLeave={handlePointerUpOrCancel}
+                className="flex items-center overflow-x-auto scrollfeed-hide snap-x snap-mandatory snap-center md:snap-none scrollfeed-webkit-overflow-scrolling-touch cursor-grab gap-4 scrollfeed-no-select"
             >
                 <ArrowForwardIosIcon
                     className="animate-bounce"
@@ -146,10 +180,6 @@ const FeedbackCarousel = () => {
                                 className="w-[288px] h-[224px] md:w-[412px] md:h-[316px] object-cover"
                             />
                         </FeedbackCard>
-                        {/* <div className="p-4">
-                            <h3 className="text-lg font-bold">Card {index + 1}</h3>
-                            <p className="text-gray-500">Description here</p>
-                        </div> */}
                     </div>
                 ))}
                 <ArrowBackIosIcon

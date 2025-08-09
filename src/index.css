@@ -129,75 +129,27 @@ body {
     }
 }
 
-.scroll-alignment-wrapper {
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
+.scrollfeed-item {
+    scroll-snap-align: start;
 }
 
-@media (min-width: 768px) {
-    .scroll-alignment-wrapper {
-        justify-content: flex-start;
-    }
-}
-
-@media (min-width: 1024px) {
-    .scroll-alignment-wrapper {
-        justify-content: center;
-    }
-}
-
-@media (min-width: 1440px) {
-    .scroll-alignment-wrapper {
-        justify-content: center;
-    }
-}
-
-.scroll-container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 36px;
-    scroll-padding-right: 36px;
-}
-
-.scroll-container::-webkit-scrollbar {
+.scrollfeed-hide::-webkit-scrollbar {
     display: none;
 }
 
-.scroll-content {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 16px;
+.scrollfeed-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.scroll-item {
-    /* flex-shrink: 0; */
-    scroll-snap-align: start;
+.scrollfeed-no-select {
+    user-select: none;
+}
+
+.scrollfeed-webkit-overflow-scrolling-touch {
+    -webkit-overflow-scrolling: touch;
 }
 
 .text-card-body {
     line-height: 2 !important;
-}
-
-/* hide scrollbars */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* optional helper */
-.no-select {
-    user-select: none;
-}
-
-/* Smooth momentum scroll on iOS Safari */
-.-webkit-overflow-scrolling-touch {
-    -webkit-overflow-scrolling: touch;
 }
