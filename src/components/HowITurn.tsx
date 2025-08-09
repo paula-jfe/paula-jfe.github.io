@@ -11,7 +11,7 @@ import HowITurnArrow from './HowITurnArrow';
 
 const HowITurn = () => {
     return (
-        <div className="relative gap-12 min-h-[166px] padding-x-5p pt-24">
+        <div className="relative gap-12 min-h-[166px] padding-x-5p py-12">
             <div className="absolute top-1/2 left-0 w-full h-full -z-10">
                 <svg
                     className="w-full h-auto block"
@@ -29,11 +29,11 @@ const HowITurn = () => {
                     />
                 </svg>
             </div>
-            <div className="flex flex-col items-center justify-center gap-8">
-                <p className="text-light_orchid-600 text-center text-h4 pb-24">
+            <div className="flex flex-col items-center justify-center">
+                <p className="text-light_orchid-600 text-center text-h4 pb-12">
                     How I turn ideas into interfaces
                 </p>
-                <div className="flex flex-row items-center justify-between w-full gap-4 flex-wrap">
+                <div className="flex flex-row items-center justify-between w-full gap-4 flex-wrap pt-12">
                     <HowITurnArrow
                         color="light_orchid"
                         title="1. Task"

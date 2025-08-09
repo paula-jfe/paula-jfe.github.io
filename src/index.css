@@ -104,8 +104,8 @@ body {
 }
 
 .padding-x-5p {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 @media (min-width: 768px) {
@@ -175,10 +175,24 @@ body {
 }
 
 .scroll-item {
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     scroll-snap-align: start;
 }
 
 .text-card-body {
     line-height: 2 !important;
+}
+
+/* hide scrollbars */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* optional helper */
+.no-select {
+    user-select: none;
 }

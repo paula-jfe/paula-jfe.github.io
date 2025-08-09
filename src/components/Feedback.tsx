@@ -40,7 +40,7 @@ const Feedback = () => {
     };
 
     return (
-        <div className="h-[640px] py-24">
+        <div className="h-[640px] py-12">
             <p className="text-light_orchid-600 text-center text-h4 pb-24">
                 What people say about me
             </p>
@@ -56,12 +56,12 @@ const Feedback = () => {
                 <div className="scroll-alignment-wrapper">
                     <div className="scroll-content">
                         <ArrowForwardIosIcon sx={{ color: '#b940a7', fontSize: 20 }} />
-                        <FeedbackCard position="IT Product Manager">
+                        {/* <FeedbackCard position="IT Product Manager">
                             <img
                                 src={feedbackComponent}
                                 draggable={false}
                                 alt="Game icon"
-                                className="select-none pointer-events-none w-[412px] h-[320px]"
+                                className="select-none pointer-events-none min-w-[288px] min-h[224px] max-w-[412px] max-h-[320px]"
                             />
                         </FeedbackCard>
                         <FeedbackCard position="Principal SWE">
@@ -69,7 +69,7 @@ const Feedback = () => {
                                 src={feedbackComponent}
                                 draggable={false}
                                 alt="Game icon"
-                                className="select-none pointer-events-none w-[412px] h-[320px]"
+                                className="select-none pointer-events-none min-w-[288px] min-h[224px] max-w-[412px] max-h-[320px]"
                             />
                         </FeedbackCard>
                         <FeedbackCard position="Principal SWE">
@@ -77,7 +77,7 @@ const Feedback = () => {
                                 src={feedbackComponent}
                                 draggable={false}
                                 alt="Game icon"
-                                className="select-none pointer-events-none w-[412px] h-[320px]"
+                                className="select-none pointer-events-none min-w-[288px] min-h[224px] max-w-[412px] max-h-[320px]"
                             />
                         </FeedbackCard>
                         <FeedbackCard position="Cross Product Leader">
@@ -85,15 +85,15 @@ const Feedback = () => {
                                 src={feedbackComponent}
                                 draggable={false}
                                 alt="Game icon"
-                                className="select-none pointer-events-none w-[412px] h-[320px]"
+                                className="select-none pointer-events-none min-w-[288px] min-h[224px] max-w-[412px] max-h-[320px]"
                             />
                         </FeedbackCard>
-                        <FeedbackCard position="Cross Product Leader">
+                        <FeedbackCard position="Senior Manager">
                             <img
                                 src={feedbackComponent}
                                 draggable={false}
                                 alt="Game icon"
-                                className="select-none pointer-events-none w-[412px] h-[320px]"
+                                className="select-none pointer-events-none min-w-[288px] min-h[224px] max-w-[412px] max-h-[320px]"
                             />
                         </FeedbackCard>
                         <FeedbackCard position="Principal SWE">
@@ -101,9 +101,9 @@ const Feedback = () => {
                                 src={feedbackComponent}
                                 draggable={false}
                                 alt="Game icon"
-                                className="select-none pointer-events-none w-[412px] h-[320px]"
+                                className="select-none pointer-events-none min-w-[288px] min-h[224px] max-w-[412px] max-h-[320px]"
                             />
-                        </FeedbackCard>
+                        </FeedbackCard> */}
                         <ArrowBackIosIcon sx={{ color: '#b940a7', fontSize: 20 }} />
                     </div>
                 </div>
