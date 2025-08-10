@@ -12,10 +12,11 @@
 }
 
 body {
-    background: linear-gradient(45deg, #fdf6fc 0%, #f9dfaf 60%);
     font-family: 'Roboto', sans-serif;
-    height: 100%;
-    position: relative;
+}
+
+.about {
+    background: linear-gradient(45deg, #f9dfaf 20%, #fdf6fc 80%);
     z-index: -1;
 }
 
@@ -63,7 +64,6 @@ body {
 }
 
 .gradient-box {
-    height: 780px;
     position: relative;
     overflow: hidden;
     z-index: 0;

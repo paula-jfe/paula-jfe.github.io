@@ -32,12 +32,14 @@ const Header = () => {
             >
                 <button
                     type="button"
+                    onClick={() => (window.location.hash = '#about')}
                     className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
                 >
                     About
                 </button>
                 <button
                     type="button"
+                    onClick={() => (window.location.hash = '#contact')}
                     className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
                 >
                     Contact

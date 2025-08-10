@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextCardExperience = () => {
     return (
-        <div className="border-8 border-yellow_orange-50 rounded-[0.2rem] bg-yellow_orange-100 flex flex-col items-start justify-start p-8 min-h-80">
+        <div className="border-8 border-yellow_orange-50 rounded-[0.2rem] bg-yellow_orange-100/20 hover:bg-yellow_orange-100/80 flex flex-col items-start justify-start p-8 min-h-80">
             <p className="text-light_orchid-600 text-h4">Experience</p>
             <ul className="text-card-body text-justify list-disc pl-5 pt-4 text-sm md:text-base lg:text-lg text-perano-700 font-medium">
                 <li>

@@ -7,23 +7,25 @@ import PersonalInfo from '../components/PersonalInfo';
 import Qualities from '../components/Qualities';
 import HowITurn from '../components/HowITurn';
 import FeedbackCarousel from '../components/FeedbackCarousel';
+import Contact from '../components/Contact';
 
 const Landing = () => {
     return (
         <div className="landing-page font-roboto">
             <Header />
-            <section id="herobanner" className="gradient-box">
+            <section id="herobanner" className="gradient-box h-[780px]">
                 <HeroBanner />
             </section>
-            <section id="about">
+            <section id="about" className="about">
                 <AnimatedStacks />
                 <PersonalInfo />
                 <Qualities />
                 <HowITurn />
-                {/* <Feedback /> */}
                 <FeedbackCarousel />
             </section>
-            {/* <section id="contact" className="gradient-box"></section> */}
+            <section id="contact" className="gradient-box h-auto">
+                <Contact />
+            </section>
         </div>
     );
 };
