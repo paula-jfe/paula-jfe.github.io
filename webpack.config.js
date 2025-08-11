@@ -13,7 +13,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        /* publicPath: isDevelopment ? '/' : './', */
+        publicPath: isDevelopment ? '/dist/' : './',
         clean: true,
     },
     devServer: {
@@ -21,7 +21,8 @@ module.exports = {
             directory: path.resolve(__dirname, 'public'),
         },
         devMiddleware: {
-            publicPath: '/dist/',
+            publicPath: isDevelopment ? '/dist/' : './',
+            /* publicPath: '/dist/', */
         },
         port: 3000,
         open: true,

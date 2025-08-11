@@ -24,13 +24,6 @@ jobs:
             - name: Build project
               run: npm run build:prod
 
-            - name: Prepare dist for deploy
-              run: |
-                  mkdir -p tempdist/dist
-                  cp -r dist/* tempdist/dist
-                  rm -rf dist
-                  mv tempdist dist
-
             - name: Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
               with:
