@@ -31,8 +31,12 @@ const Contact = () => {
                     </div>
                 </div>
                 <div className="py-12">
-                    <p className="text-light_orchid-50 text-14b">© All rights reserved</p>
-                    <p className="text-light_orchid-50 text-14b">Made by Jessica Ladislau</p>
+                    <p className="text-center text-light_orchid-50 text-14b">
+                        © All rights reserved
+                    </p>
+                    <p className="text-center text-light_orchid-50 text-14b">
+                        Made by Jessica Ladislau
+                    </p>
                 </div>
             </div>
 

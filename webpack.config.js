@@ -2,6 +2,8 @@ const path = require('path');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
+const deps = require('./package.json').dependencies;
 
 console.log(`Running in ${isDevelopment ? 'development' : 'production'} mode`);
 
@@ -11,7 +13,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: isDevelopment ? '/' : './',
+        /* publicPath: isDevelopment ? '/' : './', */
         clean: true,
     },
     devServer: {
@@ -19,7 +21,7 @@ module.exports = {
             directory: path.resolve(__dirname, 'public'),
         },
         devMiddleware: {
-            publicPath: isDevelopment ? '/' : './',
+            publicPath: '/dist/',
         },
         port: 3000,
         open: true,
@@ -58,6 +60,20 @@ module.exports = {
         ],
     },
     plugins: [
+        /* new ModuleFederationPlugin({
+            name: 'container-app',
+            remotes: {},
+            exposes: {},
+            shared: {
+                react: { singleton: true, eager: true, requiredVersion: deps.react },
+                'react-dom': { singleton: true, eager: true, requiredVersion: deps['react-dom'] },
+                '@emotion/react': {
+                    singleton: true,
+                    eager: true,
+                    requiredVersion: deps['@emotion/react'],
+                },
+            },
+        }), */
         new HtmlWebpackPlugin({
             template: './public/index.html',
             favicon: './public/favicon.ico',
