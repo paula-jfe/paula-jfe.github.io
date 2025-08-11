@@ -11,6 +11,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: isDevelopment ? '/' : './',
         clean: true,
     },
     devServer: {
@@ -18,7 +19,7 @@ module.exports = {
             directory: path.resolve(__dirname, 'public'),
         },
         devMiddleware: {
-            publicPath: '/dist/',
+            publicPath: isDevelopment ? '/' : './',
         },
         port: 3000,
         open: true,
@@ -51,7 +52,7 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|mp4|webm|ogg|svg|pdf)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'videos/[name][hash][ext]',
+                    filename: 'assets/[name][hash][ext]',
                 },
             },
         ],
