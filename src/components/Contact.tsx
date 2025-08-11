@@ -14,12 +14,12 @@ const Contact = () => {
                         <ContactForm />
                     </div>
                     <div className="w-full col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6 relative">
-                        <div className="group relative w-[330px] h-[330px] sm:w-[330px] sm:h-[330px] md:w-[385px] md:h-[385px] lg:w-[440px] lg:h-[440px] xl:w-[550px] xl:h-[550px]">
+                        <div className="group relative w-[250px] h-[250px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] mx-auto md:mx-0 md:right-0 md:-translate-x-[-20%]">
                             <img
                                 key="2"
                                 src={dev_vector}
                                 alt="Developer vector"
-                                className="absolute inset-0 w-full h-full -translate-y-[2%] object-contain transition-opacity duration-300 ease-out opacity-100 group-hover:opacity-0"
+                                className="absolute inset-0 w-full h-full md:-translate-y-[2%] object-contain transition-opacity duration-300 ease-out opacity-100 group-hover:opacity-0"
                             />
                             <img
                                 key="3"

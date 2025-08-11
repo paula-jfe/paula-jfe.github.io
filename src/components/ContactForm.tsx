@@ -74,7 +74,7 @@ const ContactForm = () => {
                 setForm({ name: '', email: '', message: '' });
                 setTimeout(() => {
                     setStatus('Send');
-                }, 5000);
+                }, 3000);
             } else {
                 setStatus('Error');
             }
@@ -164,6 +164,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-/*  className={`contact-form-input required focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 p-3 border bg-biloba_flower-200 placeholder-biloba_flower-700 text-sm rounded-[0.2rem] w-full ${errors.name ? "border-red-500 focus:ring-red-500" : "bg-transparent"}`}
- className={`contact-form-input required focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 p-3 border bg-biloba_flower-200 placeholder-biloba_flower-700 text-sm rounded-[0.2rem] w-full ${errors.email ? "border-red-500 focus:ring-red-500" : "bg-transparent"}`}
- className={`contact-form-textarea required focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 p-3 border bg-biloba_flower-200 placeholder-biloba_flower-700 text-sm rounded-[0.2rem] w-full h-32 ${errors.message ? "border-red-500 focus:ring-red-500" : "bg-transparent"}`} */
