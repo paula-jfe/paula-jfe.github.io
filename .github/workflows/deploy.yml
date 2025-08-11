@@ -26,8 +26,10 @@ jobs:
 
             - name: Prepare dist for deploy
               run: |
-                  mkdir -p dist/dist
-                  cp -r dist/* dist/dist
+                  mkdir -p tempdist/dist
+                  cp -r dist/* tempdist/dist
+                  rm -rf dist
+                  mv tempdist dist
 
             - name: Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
