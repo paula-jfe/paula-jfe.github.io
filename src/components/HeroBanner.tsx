@@ -5,7 +5,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import Resume from '../assets/resume/CV_Jessica_TR.02v.pdf';
 
 const HeroBanner = () => {
-    const downloadArquivo = () => {
+    const downloadFile = () => {
         const link = document.createElement('a');
         link.href = Resume;
         link.download = 'Jessica-Ladislau-Resume.pdf';
@@ -31,12 +31,17 @@ const HeroBanner = () => {
             <div className="hero-content">
                 <p className="text-center text-h5 text-light_orchid-200">Software Engineer</p>
             </div>
-            <AnimatedButton onClickFunction={downloadArquivo} text="Download resume">
+            <AnimatedButton
+                onClickFunction={downloadFile}
+                text="Download resume"
+                disabled={false}
+                type="button"
+            >
                 {
                     <DownloadIcon
                         fontSize="inherit"
                         className="absolute top-1/2 -translate-y-1/2 opacity-0 transition-all duration-600 ease-in-out group-hover:opacity-100 group-hover:translate-x-0 text-light_orchid-50 ml-2"
-                        style={{ width: '30px', height: '30px' }}
+                        style={{ width: '25px', height: '25px' }}
                     />
                 }
             </AnimatedButton>

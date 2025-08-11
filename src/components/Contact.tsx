@@ -8,19 +8,21 @@ const Contact = () => {
     return (
         <div className="padding-x-5p h-full w-full">
             <div className="h-auto w-full contact-container flex flex-col items-center justify-center">
-                <h2 className="text-h1 text-light_orchid-50 py-12">Let's connect</h2>
+                <h2 className="text-h1 text-light_orchid-50 py-12 text-center">Let's connect</h2>
                 <div className="h-auto w-full grid grid-cols-12 gap-8 place-items-center mx-auto">
-                    <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
+                    <div className="w-full col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
                         <ContactForm />
                     </div>
-                    <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6 relative">
-                        <div className="group relative w-[275px] h-[275px] sm:w-[275px] sm:h-[275px] md:w-[275px] md:h-[275px] lg:w-[550px] lg:h-[550px]">
+                    <div className="w-full col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6 relative">
+                        <div className="group relative w-[330px] h-[330px] sm:w-[330px] sm:h-[330px] md:w-[385px] md:h-[385px] lg:w-[440px] lg:h-[440px] xl:w-[550px] xl:h-[550px]">
                             <img
+                                key="2"
                                 src={dev_vector}
                                 alt="Developer vector"
                                 className="absolute inset-0 w-full h-full -translate-y-[2%] object-contain transition-opacity duration-300 ease-out opacity-100 group-hover:opacity-0"
                             />
                             <img
+                                key="3"
                                 src={logo_smiling}
                                 alt="Smiling logo"
                                 className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100"

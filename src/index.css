@@ -39,7 +39,7 @@ body {
     transition: padding-right 0.3s ease;
 }
 
-.fancy-button:hover {
+.fancy-button.with-icon:hover {
     padding-right: 48px;
 }
 
