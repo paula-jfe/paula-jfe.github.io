@@ -5,6 +5,8 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const deps = require('./package.json').dependencies;
 
+const publicPathForDevServer = '/';
+
 console.log(`Running in ${isDevelopment ? 'development' : 'production'} mode`);
 
 module.exports = {
@@ -13,7 +15,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: isDevelopment ? '/dist/' : './',
+        publicPath: isDevelopment ? publicPathForDevServer : './',
         clean: true,
     },
     devServer: {
@@ -21,8 +23,7 @@ module.exports = {
             directory: path.resolve(__dirname, 'public'),
         },
         devMiddleware: {
-            publicPath: isDevelopment ? '/dist/' : './',
-            /* publicPath: '/dist/', */
+            publicPath: isDevelopment ? publicPathForDevServer : './',
         },
         port: 3000,
         open: true,
