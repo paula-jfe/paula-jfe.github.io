@@ -72,15 +72,18 @@ const ContactForm = () => {
             if (response.ok) {
                 setStatus('Sent!');
                 setForm({ name: '', email: '', message: '' });
-                setTimeout(() => {
-                    setStatus('Send');
-                }, 3000);
             } else {
                 setStatus('Error');
             }
+            setTimeout(() => {
+                setStatus('Send');
+            }, 3000);
         } catch (error) {
             console.log(error.message);
             setStatus('Error');
+            setTimeout(() => {
+                setStatus('Send');
+            }, 3000);
         }
     };
 
