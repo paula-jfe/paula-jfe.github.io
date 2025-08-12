@@ -15,7 +15,11 @@ const Header = () => {
                     justifyContent: 'center',
                 }}
             >
-                <a href="#herobanner" className="hover:scale-105 transition-transform">
+                <a
+                    href="#herobanner"
+                    className="hover:scale-105 transition-transform"
+                    aria-label="Go to top section with download resume button"
+                >
                     <img src={logo} alt="J smile logo" style={{ width: '40px', height: '40px' }} />
                 </a>
             </div>
@@ -33,6 +37,7 @@ const Header = () => {
                 <button
                     type="button"
                     onClick={() => (window.location.hash = '#about')}
+                    aria-label="Go to about section with experience and education information"
                     className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
                 >
                     About
@@ -40,6 +45,7 @@ const Header = () => {
                 <button
                     type="button"
                     onClick={() => (window.location.hash = '#contact')}
+                    aria-label="Go to contact section with contact form"
                     className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
                 >
                     Contact
@@ -48,6 +54,7 @@ const Header = () => {
                     href="https://github.com/paula-jfe"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Go to Jessica's GitHub page"
                     className="hover:scale-105 transition-transform"
                 >
                     <GitHubIcon
@@ -60,6 +67,7 @@ const Header = () => {
                     href="https://www.linkedin.com/in/jessica-ladislau/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Go to Jessica's LinkedIn page"
                     className="hover:scale-105 transition-transform"
                 >
                     <LinkedInIcon
