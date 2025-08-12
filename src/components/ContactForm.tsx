@@ -37,7 +37,7 @@ const ContactForm = () => {
         }
 
         if (!form.message.trim()) {
-            newErrors.message = 'Menssage is required';
+            newErrors.message = 'Message is required';
         }
 
         setErrors(newErrors);
