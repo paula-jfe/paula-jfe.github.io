@@ -19,7 +19,12 @@ const CardFigma = () => {
                     </p>
                 </div>
                 <div className="pt-8 flex justify-center">
-                    <img key="30" src={figmaWhite} alt="Jest Icon" style={{ height: '70px' }} />
+                    <img
+                        key="30"
+                        src={figmaWhite}
+                        alt="Figma clickable Icon"
+                        style={{ height: '70px' }}
+                    />
                 </div>
             </a>
         </div>

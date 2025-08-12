@@ -174,6 +174,7 @@ const FeedbackCarousel = () => {
                     >
                         <FeedbackCard position={feedback.position} message={feedback.message}>
                             <img
+                                key={index}
                                 src={feedbackComponent}
                                 draggable={false}
                                 alt={`Feedback ${index + 1}`}

@@ -41,7 +41,7 @@ const HowITurn = () => {
                     >
                         <img
                             src={graph_pink}
-                            alt="Game icon"
+                            alt="Requirements content"
                             className="w-full max-w-[220px] min-w-[160px] h-auto"
                         />
                     </HowITurnArrow>
@@ -52,7 +52,7 @@ const HowITurn = () => {
                     >
                         <img
                             src={graph_purple}
-                            alt="Game icon"
+                            alt="Dependencies content"
                             className="w-full max-w-[220px] min-w-[160px] h-auto"
                         />
                     </HowITurnArrow>
@@ -63,7 +63,7 @@ const HowITurn = () => {
                     >
                         <img
                             src={graph_pink}
-                            alt="Game icon"
+                            alt="Sketch content"
                             className="w-full max-w-[220px] min-w-[160px] h-auto"
                         />
                     </HowITurnArrow>
@@ -74,7 +74,7 @@ const HowITurn = () => {
                     >
                         <img
                             src={graph_purple}
-                            alt="Game icon"
+                            alt="Feature content"
                             className="w-full max-w-[220px] min-w-[160px] h-auto"
                         />
                     </HowITurnArrow>
@@ -85,7 +85,7 @@ const HowITurn = () => {
                     >
                         <img
                             src={graph_pink}
-                            alt="Game icon"
+                            alt="Launch content"
                             className="w-full max-w-[220px] min-w-[160px] h-auto"
                         />
                     </HowITurnArrow>
