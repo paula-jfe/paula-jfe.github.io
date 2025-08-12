@@ -2,7 +2,7 @@ import React from 'react';
 
 const FeedbackCard = ({ children, position, message, ...props }) => {
     return (
-        <div className="scrollfeed-item sm:px-2 md:px-12 inline-block">
+        <div id="about-feedback-card" className="scrollfeed-item sm:px-2 md:px-12 inline-block">
             <div className="relative">
                 <div>{children}</div>
                 <p

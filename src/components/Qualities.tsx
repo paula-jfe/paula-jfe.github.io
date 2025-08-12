@@ -7,7 +7,7 @@ import code from '../assets/icons/code.svg';
 
 const Qualities = () => {
     return (
-        <div className=" gap-12 min-h-[166px] p-12 padding-x-5p">
+        <div id="about-qualities" className=" gap-12 min-h-[166px] p-12 padding-x-5p">
             <div className="flex flex-row items-center justify-between md:px-12 gap-4 flex-wrap">
                 <QualityCard text="Fast build">
                     <img src={bolt} alt="Bolt icon" style={{ width: '40px', height: '40px' }} />

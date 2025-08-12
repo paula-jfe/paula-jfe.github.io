@@ -2,7 +2,10 @@ import React from 'react';
 
 const QualityCard = ({ children, text, className = '', ...props }) => {
     return (
-        <div className="text-biloba_flower-900 hover:text-perano-700 transition-colors duration-300">
+        <div
+            id="about-quality-card"
+            className="text-biloba_flower-900 hover:text-perano-700 transition-colors duration-300"
+        >
             <div
                 className={
                     className +

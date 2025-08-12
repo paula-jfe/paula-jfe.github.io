@@ -15,7 +15,10 @@ const HeroBanner = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-end h-[780px] padding-x-5p gap-8 pb-8">
+        <div
+            id="herobanner-video-section"
+            className="flex flex-col items-center justify-end h-[780px] padding-x-5p gap-8 pb-8"
+        >
             <video
                 preload="auto"
                 autoPlay

@@ -11,7 +11,7 @@ import Contact from '../components/Contact';
 
 const Landing = () => {
     return (
-        <div className="landing-page font-roboto">
+        <div id="home-page" className="landing-page font-roboto">
             <Header />
             <section id="herobanner" className="gradient-box h-[780px]">
                 <HeroBanner />

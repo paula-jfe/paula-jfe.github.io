@@ -2,7 +2,10 @@ import React from 'react';
 
 const CardYears = () => {
     return (
-        <div className="shadow icon-card bg-biloba_flower-900 rounded-[0.2rem] flex flex-col h-full items-center justify-center px-12 min-h-80">
+        <div
+            id="about-years-card"
+            className="shadow icon-card bg-biloba_flower-900 rounded-[0.2rem] flex flex-col h-full items-center justify-center px-12 min-h-80"
+        >
             <div className="flex flex-col items-center justify-center">
                 <div className="">
                     <span className="text-h4 text-biloba_flower-200 pr-4">+</span>

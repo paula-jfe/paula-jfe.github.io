@@ -1,17 +1,11 @@
 import React from 'react';
-import QualityCard from './QualityCard';
-import game from '../assets/icons/game.svg';
-import bug from '../assets/icons/bug.svg';
-import bolt from '../assets/icons/bolt.svg';
-import code from '../assets/icons/code.svg';
 import graph_pink from '../assets/pictures/graph_pink.svg';
 import graph_purple from '../assets/pictures/graph_purple.svg';
-import wave from '../assets/pictures/wave.svg';
 import HowITurnArrow from './HowITurnArrow';
 
 const HowITurn = () => {
     return (
-        <div className="relative gap-12 min-h-[166px] padding-x-5p py-12">
+        <div id="about-thinking" className="relative gap-12 min-h-[166px] padding-x-5p py-12">
             <div className="absolute top-1/2 left-0 w-full h-full -z-10">
                 <svg
                     className="w-full h-auto block"

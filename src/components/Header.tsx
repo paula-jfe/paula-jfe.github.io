@@ -5,7 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Header = () => {
     return (
-        <header className="header padding-x-5p">
+        <header id="home-page-header" className="header padding-x-5p">
             <div
                 style={{
                     alignItems: 'center',
@@ -17,7 +17,7 @@ const Header = () => {
             >
                 <a
                     href="#herobanner"
-                    className="hover:scale-105 transition-transform"
+                    className="hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 focus:rounded-[0.2rem]"
                     aria-label="Go to top section with download resume button"
                 >
                     <img src={logo} alt="J smile logo" style={{ width: '40px', height: '40px' }} />
@@ -38,7 +38,7 @@ const Header = () => {
                     type="button"
                     onClick={() => (window.location.hash = '#about')}
                     aria-label="Go to about section with experience and education information"
-                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 focus:rounded-[0.2rem]"
                 >
                     About
                 </button>
@@ -46,7 +46,7 @@ const Header = () => {
                     type="button"
                     onClick={() => (window.location.hash = '#contact')}
                     aria-label="Go to contact section with contact form"
-                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 focus:rounded-[0.2rem]"
                 >
                     Contact
                 </button>
@@ -55,7 +55,7 @@ const Header = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Go to Jessica's GitHub page"
-                    className="hover:scale-105 transition-transform"
+                    className="hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 focus:rounded-[0.2rem]"
                 >
                     <GitHubIcon
                         fontSize="inherit"
@@ -68,7 +68,7 @@ const Header = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Go to Jessica's LinkedIn page"
-                    className="hover:scale-105 transition-transform"
+                    className="hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 focus:rounded-[0.2rem]"
                 >
                     <LinkedInIcon
                         fontSize="inherit"

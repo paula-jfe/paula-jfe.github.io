@@ -89,6 +89,7 @@ const ContactForm = () => {
 
     return (
         <form
+            id="contact-form"
             onSubmit={handleSubmit}
             className="w-full max-w-lg mx-auto p-8 bg-biloba_flower-50 rounded-[0.2rem]"
         >

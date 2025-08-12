@@ -67,8 +67,8 @@ const FeedbackCarousel = () => {
         const element = scrollerRef.current;
         if (!element) return;
 
-        // Adjust the initial scrollLeft — for example, 2 cards to the right
-        // If each card is 288px wide + gap, calculate:
+        // Adjust the initial scrollLeft
+        // If each card is 288px wide + gap:
         const cardWidth = 288;
         const gap = 16;
         const initialScroll = (cardWidth + gap) * 2; // Advance two cards
@@ -107,49 +107,8 @@ const FeedbackCarousel = () => {
         element.releasePointerCapture(e.pointerId);
     };
 
-    /* useEffect(() => {
-        const element = scrollerRef.current;
-        if (!element) return;
-        let isDown = false,
-            startX = 0,
-            startScroll = 0;
-
-        const down = (event: PointerEvent) => {
-            isDown = true;
-            element.classList.add('cursor-grabbing');
-            startX = event.clientX ?? event.touches?.[0]?.clientX;
-            startScroll = element.scrollLeft;
-            if (event.pointerId) element.setPointerCapture?.(event.pointerId);
-        };
-
-        const move = (event: PointerEvent) => {
-            if (!isDown) return;
-            const x = event.clientX ?? e.touches?.[0]?.clientX;
-            const walk = x - startX;
-            element.scrollLeft = startScroll - walk;
-        };
-
-        const up = (event: PointerEvent) => {
-            isDown = false;
-            element.classList.remove('cursor-grabbing');
-            if (event.pointerId) element.releasePointerCapture?.(event.pointerId);
-        };
-
-        element.addEventListener('pointerdown', down);
-        element.addEventListener('pointermove', move);
-        window.addEventListener('pointerup', up);
-        element.addEventListener('pointercancel', up);
-
-        return () => {
-            element.removeEventListener('pointerdown', down);
-            element.removeEventListener('pointermove', move);
-            window.removeEventListener('pointerup', up);
-            element.removeEventListener('pointercancel', up);
-        };
-    }, []); */
-
     return (
-        <div className="py-12 select-none">
+        <div id="about-feedback-carousel" className="py-12 select-none">
             <p className="text-light_orchid-600 text-center text-h4 pb-24">
                 What people say about me
             </p>
@@ -160,7 +119,7 @@ const FeedbackCarousel = () => {
                 onPointerUp={handlePointerUpOrCancel}
                 onPointerCancel={handlePointerUpOrCancel}
                 onPointerLeave={handlePointerUpOrCancel}
-                className="flex items-center overflow-x-auto scrollfeed-hide snap-x snap-mandatory snap-center md:snap-none scrollfeed-webkit-overflow-scrolling-touch cursor-grab gap-4 scrollfeed-no-select"
+                className="flex items-center overflow-x-auto scrollfeed-hide snap-x snap-mandatory snap-center md:snap-none scrollfeed-webkit-overflow-scrolling-touch cursor-grab gap-4 scrollfeed-no-select focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 focus:rounded-[0.2rem]"
             >
                 <ArrowForwardIosIcon
                     className="animate-bounce"

@@ -6,7 +6,7 @@ import logo_smiling from '../assets/pictures/logo_smiling.svg';
 
 const Contact = () => {
     return (
-        <div className="padding-x-5p h-full w-full">
+        <div id="contact-section" className="padding-x-5p h-full w-full">
             <div className="h-auto w-full contact-container flex flex-col items-center justify-center">
                 <h2 className="text-h1 text-light_orchid-50 py-12 text-center">Let's connect</h2>
                 <div className="h-auto w-full grid grid-cols-12 gap-8 place-items-center mx-auto">

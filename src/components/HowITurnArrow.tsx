@@ -2,7 +2,7 @@ import React from 'react';
 
 const HowITurnArrow = ({ children, title, text, color, ...props }) => {
     return (
-        <div className="">
+        <div id="about-thinking-arrow" className="">
             <div className="w-[160px] sm:w-[160px] md:w-[190px] lg:w-[220px] h-auto mx-auto">
                 <p className="text-center pr-7 pb-2 text-20b sm:text-20b md:text-h6 text-perano-700">
                     {title}
