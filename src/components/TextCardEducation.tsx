@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextCardEducation = () => {
+const TextCardEducation: React.FC = () => {
     return (
         <div
             id="about-education-card"

@@ -9,7 +9,7 @@ import HowITurn from '../components/HowITurn';
 import FeedbackCarousel from '../components/FeedbackCarousel';
 import Contact from '../components/Contact';
 
-const Landing = () => {
+const Landing: React.FC = () => {
     return (
         <div id="home-page" className="landing-page font-roboto">
             <Header />

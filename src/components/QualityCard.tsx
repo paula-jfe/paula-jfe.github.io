@@ -1,6 +1,7 @@
 import React from 'react';
+import { QualityCardProps } from '../types/sections/About';
 
-const QualityCard = ({ children, text, className = '', ...props }) => {
+const QualityCard: React.FC<QualityCardProps> = ({ children, text, className = '', ...props }) => {
     return (
         <div
             id="about-quality-card"

@@ -5,7 +5,7 @@ import bug from '../assets/icons/bug.svg';
 import bolt from '../assets/icons/bolt.svg';
 import code from '../assets/icons/code.svg';
 
-const Qualities = () => {
+const Qualities: React.FC = () => {
     return (
         <div id="about-qualities" className=" gap-12 min-h-[166px] p-12 padding-x-5p">
             <div className="flex flex-row items-center justify-between md:px-12 gap-4 flex-wrap">

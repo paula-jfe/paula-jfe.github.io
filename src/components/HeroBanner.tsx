@@ -4,9 +4,9 @@ import AnimatedButton from './AnimatedButton';
 import DownloadIcon from '@mui/icons-material/Download';
 import Resume from '../assets/resume/CV_Jessica_TR.02v.pdf';
 
-const HeroBanner = () => {
-    const downloadFile = () => {
-        const link = document.createElement('a');
+const HeroBanner: React.FC = () => {
+    const downloadFile = (): void => {
+        const link: HTMLAnchorElement = document.createElement('a');
         link.href = Resume;
         link.download = 'Jessica-Ladislau-Resume.pdf';
         document.body.appendChild(link);

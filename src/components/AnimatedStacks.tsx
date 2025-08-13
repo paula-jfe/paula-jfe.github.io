@@ -15,7 +15,7 @@ import redux from '../assets/icons/redux.svg';
 import sql from '../assets/icons/sql.svg';
 import typescript from '../assets/icons/typescript.svg';
 
-const AnimatedStacks = () => {
+const AnimatedStacks: React.FC = () => {
     return (
         <div id="about-animated-stacks" className="marquee-container gap-12 h-[166px]">
             <div className="marquee-track">

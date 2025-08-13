@@ -3,7 +3,7 @@ import graph_pink from '../assets/pictures/graph_pink.svg';
 import graph_purple from '../assets/pictures/graph_purple.svg';
 import HowITurnArrow from './HowITurnArrow';
 
-const HowITurn = () => {
+const HowITurn: React.FC = () => {
     return (
         <div id="about-thinking" className="relative gap-12 min-h-[166px] padding-x-5p py-12">
             <div className="absolute top-1/2 left-0 w-full h-full -z-10">

@@ -1,16 +1,18 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "es2015"],
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
-  },
-  "include": ["src/**/*"]
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "es2015"],
+        "allowJs": true,
+        "jsx": "react-jsx",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist"
+    },
+    "include": ["src/**/*"]
 }
 // This file is used to configure the TypeScript compiler options for the project.
 // It specifies the target ECMAScript version, the libraries to include, and other compiler options.

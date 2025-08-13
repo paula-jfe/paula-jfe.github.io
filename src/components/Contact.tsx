@@ -4,7 +4,7 @@ import dev_vector from '../assets/pictures/dev_vector.svg';
 import polygon from '../assets/pictures/polygon.svg';
 import logo_smiling from '../assets/pictures/logo_smiling.svg';
 
-const Contact = () => {
+const Contact: React.FC = () => {
     return (
         <div id="contact-section" className="padding-x-5p h-full w-full">
             <div className="h-auto w-full contact-container flex flex-col items-center justify-center">

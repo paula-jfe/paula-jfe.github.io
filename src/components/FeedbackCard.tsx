@@ -1,6 +1,7 @@
 import React from 'react';
+import { FeedbackCardProps } from '../types/sections/About';
 
-const FeedbackCard = ({ children, position, message, ...props }) => {
+const FeedbackCard: React.FC<FeedbackCardProps> = ({ children, position, message, ...props }) => {
     return (
         <div id="about-feedback-card" className="scrollfeed-item sm:px-2 md:px-12 inline-block">
             <div className="relative">

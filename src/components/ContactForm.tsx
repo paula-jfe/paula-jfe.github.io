@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import AnimatedButton from './AnimatedButton';
 import SendIcon from '@mui/icons-material/Send';
+import { FormData } from '../types/sections/Contact';
 
-interface FormData {
-    name: string;
-    email: string;
-    message: string;
-}
-
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
     const [status, setStatus] = useState<'Send' | 'Sending...' | 'Sent!' | 'Error'>('Send');
     const [errors, setErrors] = useState<Partial<FormData>>({});
     const [form, setForm] = useState<FormData>({
@@ -44,7 +39,7 @@ const ContactForm = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
 
         if (!validateForm()) {
@@ -78,12 +73,16 @@ const ContactForm = () => {
             setTimeout(() => {
                 setStatus('Send');
             }, 3000);
-        } catch (error) {
-            console.log(error.message);
-            setStatus('Error');
-            setTimeout(() => {
-                setStatus('Send');
-            }, 3000);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                console.error(error.message);
+                setStatus('Error');
+                setTimeout(() => {
+                    setStatus('Send');
+                }, 3000);
+            } else {
+                console.error('Unknown Error', error);
+            }
         }
     };
 
@@ -106,7 +105,7 @@ const ContactForm = () => {
                 className={`${
                     errors.name ? 'mb-0' : 'mb-6'
                 } contact-form-input required focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 p-3 border bg-biloba_flower-200 placeholder-biloba_flower-700 text-sm rounded-[0.2rem] w-full ${
-                    errors.name ? 'border-red-500 focus:ring-red-500' : 'border-transparent'
+                    errors.name ? 'border-red-600 focus:ring-red-600' : 'border-transparent'
                 }`}
             />
             <p className={`${errors.name ? 'py-3' : 'py-0'} form-error text-red-600 text-sm`}>

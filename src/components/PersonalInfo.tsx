@@ -4,7 +4,7 @@ import CardFigma from './CardFigma';
 import TextCardExperience from './TextCardExperience';
 import TextCardEducation from './TextCardEducation';
 
-const PersonalInfo = () => {
+const PersonalInfo: React.FC = () => {
     return (
         <div id="about-personal-info" className="personal-info padding-x-5p">
             <div className="grid grid-cols-12 gap-8 mx-auto">

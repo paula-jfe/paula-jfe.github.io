@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardYears = () => {
+const CardYears: React.FC = () => {
     return (
         <div
             id="about-years-card"

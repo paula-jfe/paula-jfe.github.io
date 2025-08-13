@@ -38,13 +38,12 @@ const feedbackArray = [
     },
 ];
 
-const FeedbackCarousel = () => {
+const FeedbackCarousel: React.FC = () => {
+    const [isDragging, setIsDragging] = useState<boolean>(false);
     const scrollerRef = useRef<HTMLDivElement>(null);
     const cardRef = useRef<HTMLDivElement>(null);
-
-    const [isDragging, setIsDragging] = useState(false);
-    const startXRef = useRef(0);
-    const scrollLeftRef = useRef(0);
+    const startXRef = useRef<number>(0);
+    const scrollLeftRef = useRef<number>(0);
 
     useEffect(() => {
         const element = scrollerRef.current;
@@ -119,7 +118,7 @@ const FeedbackCarousel = () => {
                 onPointerUp={handlePointerUpOrCancel}
                 onPointerCancel={handlePointerUpOrCancel}
                 onPointerLeave={handlePointerUpOrCancel}
-                className="flex items-center overflow-x-auto scrollfeed-hide snap-x snap-mandatory snap-center md:snap-none scrollfeed-webkit-overflow-scrolling-touch cursor-grab gap-4 scrollfeed-no-select focus:outline-none focus:ring-2 focus:ring-biloba_flower-900 focus:rounded-[0.2rem]"
+                className="flex items-center overflow-x-auto scrollfeed-hide snap-x snap-mandatory snap-center md:snap-none scrollfeed-webkit-overflow-scrolling-touch cursor-grab gap-4 scrollfeed-no-select focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-biloba_flower-900 focus-visible:rounded-[0.2rem]"
             >
                 <ArrowForwardIosIcon
                     className="animate-bounce"

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Landing from './pages/Landing';
 import './index.css';
 
-const App = () => (
+const App: React.FC = () => (
     <div>
         <Landing />
     </div>

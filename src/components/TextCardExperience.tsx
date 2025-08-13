@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextCardExperience = () => {
+const TextCardExperience: React.FC = () => {
     return (
         <div
             id="about-experience-card"

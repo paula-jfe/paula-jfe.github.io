@@ -1,6 +1,13 @@
 import React from 'react';
+import { HowITurnArrowProps } from '../types/sections/About';
 
-const HowITurnArrow = ({ children, title, text, color, ...props }) => {
+const HowITurnArrow: React.FC<HowITurnArrowProps> = ({
+    children,
+    title,
+    text,
+    color,
+    ...props
+}) => {
     return (
         <div id="about-thinking-arrow" className="">
             <div className="w-[160px] sm:w-[160px] md:w-[190px] lg:w-[220px] h-auto mx-auto">
