@@ -5,7 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Header: React.FC = () => {
     return (
-        <header id="home-page-header" className="header padding-x-5p">
+        <header id="homepage-header" className="header padding-x-5p">
             <div
                 style={{
                     alignItems: 'center',
@@ -20,7 +20,11 @@ const Header: React.FC = () => {
                     className="hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-biloba_flower-900 focus-visible:rounded-[0.2rem]"
                     aria-label="Go to top section with download resume button"
                 >
-                    <img src={logo} alt="J smile logo" style={{ width: '40px', height: '40px' }} />
+                    <img
+                        src={logo}
+                        alt="Header J smile logo"
+                        style={{ width: '40px', height: '40px' }}
+                    />
                 </a>
             </div>
             <div
@@ -38,10 +42,7 @@ const Header: React.FC = () => {
                     type="button"
                     onClick={() => (window.location.hash = '#about')}
                     aria-label="Go to about section with experience and education information"
-                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 focus-visible:outline-none 
-         focus-visible:ring-2 
-         focus-visible:ring-biloba_flower-900 
-         focus-visible:rounded-[0.2rem]"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-biloba_flower-900 focus-visible:rounded-[0.2rem]"
                 >
                     About
                 </button>
@@ -49,10 +50,7 @@ const Header: React.FC = () => {
                     type="button"
                     onClick={() => (window.location.hash = '#contact')}
                     aria-label="Go to contact section with contact form"
-                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 focus-visible:outline-none 
-         focus-visible:ring-2 
-         focus-visible:ring-biloba_flower-900 
-         focus-visible:rounded-[0.2rem]"
+                    className="hover:scale-105 transition-transform bg-transparent text-24b text-perano-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-biloba_flower-900 focus-visible:rounded-[0.2rem]"
                 >
                     Contact
                 </button>
@@ -61,13 +59,11 @@ const Header: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Go to Jessica's GitHub page"
-                    className="hover:scale-105 transition-transform focus-visible:outline-none 
-         focus-visible:ring-2 
-         focus-visible:ring-biloba_flower-900 
-         focus-visible:rounded-[0.2rem]"
+                    className="hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-biloba_flower-900 focus-visible:rounded-[0.2rem]"
                 >
                     <GitHubIcon
                         fontSize="inherit"
+                        data-testid="header-github-icon"
                         className="w-8 h-8 text-perano-700"
                         style={{ width: '35px', height: '35px' }}
                     />
@@ -77,13 +73,11 @@ const Header: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Go to Jessica's LinkedIn page"
-                    className="hover:scale-105 transition-transform focus-visible:outline-none 
-         focus-visible:ring-2 
-         focus-visible:ring-biloba_flower-900 
-         focus-visible:rounded-[0.2rem]"
+                    className="hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-biloba_flower-900 focus-visible:rounded-[0.2rem]"
                 >
                     <LinkedInIcon
                         fontSize="inherit"
+                        data-testid="header-linkedin-icon"
                         className="w-8 h-8 text-perano-700 scale-[1.34]"
                         style={{ width: '32px', height: '32px' }}
                     />

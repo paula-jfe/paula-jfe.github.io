@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactForm from './ContactForm';
+import Footer from './Footer';
 import dev_vector from '../assets/pictures/dev_vector.svg';
 import polygon from '../assets/pictures/polygon.svg';
 import logo_smiling from '../assets/pictures/logo_smiling.svg';
@@ -30,14 +31,7 @@ const Contact: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="py-12">
-                    <p className="text-center text-light_orchid-50 text-14b">
-                        © All rights reserved
-                    </p>
-                    <p className="text-center text-light_orchid-50 text-14b">
-                        Made by Jessica Ladislau
-                    </p>
-                </div>
+                <Footer />
             </div>
 
             <img

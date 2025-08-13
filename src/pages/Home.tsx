@@ -9,9 +9,9 @@ import HowITurn from '../components/HowITurn';
 import FeedbackCarousel from '../components/FeedbackCarousel';
 import Contact from '../components/Contact';
 
-const Landing: React.FC = () => {
+const Home: React.FC = () => {
     return (
-        <div id="home-page" className="landing-page font-roboto">
+        <div id="homepage" className="landing-page font-roboto">
             <Header />
             <section id="herobanner" className="gradient-box h-[780px]">
                 <HeroBanner />
@@ -30,4 +30,4 @@ const Landing: React.FC = () => {
     );
 };
 
-export default Landing;
+export default Home;
