@@ -1,4 +1,1 @@
-export default {
-    ok: true,
-    next: '/nextroute',
-};
+export default 'test-file';
