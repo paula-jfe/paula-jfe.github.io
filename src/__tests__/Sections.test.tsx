@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import Home from '../pages/Home';
 
 describe('All sections ant its components are present in HomePage', () => {
-    it('Header is present`', () => {
+    it('must have Header components present', () => {
         render(<Home />);
 
         const logoIcon = screen.getByAltText('Header J smile logo');
@@ -22,7 +22,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(githubIcon).toBeInTheDocument();
         expect(linkedinIcon).toBeInTheDocument();
     });
-    it('HeroBanner is present`', () => {
+    it('must have HeroBanner components present', () => {
         render(<Home />);
 
         const devName = screen.getByText('Jessica Ladislau');
@@ -33,14 +33,14 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(devRole).toBeInTheDocument();
         expect(downloadResumeButton).toBeInTheDocument();
     });
-    it('Carousel of stacks is present', () => {
+    it('must have Carousel of stacks present', () => {
         render(<Home />);
         const listSize = 30;
 
         const listOfIcons = screen.getAllByAltText(/^carousel-icon/);
         expect(listOfIcons.length).toBe(listSize);
     });
-    it('Info cards are present', () => {
+    it('must have Info cards components present', () => {
         render(<Home />);
 
         const yearsCard = screen.getByText('exp');
@@ -53,7 +53,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(experienceCard).toBeInTheDocument();
         expect(educationCard).toBeInTheDocument();
     });
-    it('Quality cards are present', () => {
+    it('must have Quality cards components present', () => {
         render(<Home />);
 
         const fastBuidCard = screen.getByText('Fast build');
@@ -66,7 +66,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(gameLoverIcon).toBeInTheDocument();
         expect(creativeCoderIcon).toBeInTheDocument();
     });
-    it('How I Turn ideas into interfaces section is present', () => {
+    it('must have How I Turn ideas into interfaces section present', () => {
         render(<Home />);
 
         const sectionTitle = screen.getByText('How I turn ideas into interfaces');
@@ -83,7 +83,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(testsIcon).toBeInTheDocument();
         expect(launchIcon).toBeInTheDocument();
     });
-    it('List of feedback is present', () => {
+    it('must have List of feedback present', () => {
         render(<Home />);
 
         const sectionTitle = screen.getByText('What people say about me');
@@ -114,7 +114,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(onTrackCard).toBeInTheDocument();
         expect(extraMileCard).toBeInTheDocument();
     });
-    it('Contact section is present', () => {
+    it('must have Contact section components present', () => {
         render(<Home />);
 
         const sectionTitle = screen.getByText("Let's connect");
@@ -129,7 +129,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(sectionTitle).toBeInTheDocument();
         expect(sendButton).toBeInTheDocument();
     });
-    it('Footer section is present', () => {
+    it('must have Footer section present', () => {
         render(<Home />);
 
         const copy = screen.getByText('© All rights reserved');

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AnimatedButton from './AnimatedButton';
 import SendIcon from '@mui/icons-material/Send';
 import { FormData } from '../types/sections/Contact';
+import * as api from '../services/api';
 
 const ContactForm: React.FC = () => {
     const [status, setStatus] = useState<'Send' | 'Sending...' | 'Sent!' | 'Error'>('Send');
@@ -47,42 +48,26 @@ const ContactForm: React.FC = () => {
         }
 
         setStatus('Sending...');
-
         setErrors({
             name: '',
             email: '',
             message: '',
         });
 
-        try {
-            const response = await fetch('https://formspree.io/f/mdkdyywe', {
-                method: 'POST',
-                body: JSON.stringify(form),
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
+        const response = await api.sendMessage(form);
 
-            if (response.ok) {
-                setStatus('Sent!');
-                setForm({ name: '', email: '', message: '' });
-            } else {
-                setStatus('Error');
-            }
+        if (response.ok) {
+            setStatus('Sent!');
+            setForm({ name: '', email: '', message: '' });
             setTimeout(() => {
                 setStatus('Send');
             }, 3000);
-        } catch (error: unknown) {
-            if (error instanceof Error) {
-                console.error(error.message);
-                setStatus('Error');
-                setTimeout(() => {
-                    setStatus('Send');
-                }, 3000);
-            } else {
-                console.error('Unknown Error', error);
-            }
+        } else {
+            setStatus('Error');
+            console.log('Error', response.errors);
+            setTimeout(() => {
+                setStatus('Send');
+            }, 3000);
         }
     };
 
