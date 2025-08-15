@@ -36,7 +36,5 @@ describe('downloadFile inside Home component', () => {
 
         expect(createElementSpy).toHaveBeenCalledWith('a');
         expect(clickMock).toHaveBeenCalled();
-
-        createElementSpy.mockRestore();
     });
 });
