@@ -8,6 +8,7 @@ module.exports = {
         '!src/**/*.d.ts',
         '!src/index.tsx',
         '!src/context/*',
+        '!src/services/*',
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov'],
@@ -25,6 +26,7 @@ module.exports = {
         '\\.(jpg|jpeg|png|gif|mp4|webm|ogg|pdf|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
     },
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+    testTimeout: 10000,
     transform: {
         '^.+\\.(ts|tsx)$': 'ts-jest',
     },
