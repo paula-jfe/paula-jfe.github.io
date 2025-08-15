@@ -16,5 +16,4 @@ export interface HowITurnArrowProps extends HTMLAttributes<HTMLDivElement> {
 export interface QualityCardProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
     text?: string;
-    className?: string;
 }

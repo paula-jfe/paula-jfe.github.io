@@ -113,6 +113,7 @@ const FeedbackCarousel: React.FC = () => {
             </p>
             <div
                 ref={scrollerRef}
+                role="grab-region"
                 onPointerDown={handlePointerDown}
                 onPointerMove={handlePointerMove}
                 onPointerUp={handlePointerUpOrCancel}

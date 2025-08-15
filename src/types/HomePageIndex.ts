@@ -4,5 +4,4 @@ export interface AnimatedButtonProps extends ButtonHTMLAttributes<HTMLButtonElem
     children?: ReactNode;
     text?: string;
     onClickFunction?: MouseEventHandler<HTMLButtonElement>;
-    className?: string;
 }

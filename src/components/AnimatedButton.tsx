@@ -7,7 +7,6 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     onClickFunction,
     type,
     disabled,
-    className = '',
     ...props
 }) => {
     return (

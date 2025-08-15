@@ -64,7 +64,7 @@ const ContactForm: React.FC = () => {
             }, 3000);
         } else {
             setStatus('Error');
-            console.log('Error', response.errors);
+            // console.log('Error', response.errors);
             setTimeout(() => {
                 setStatus('Send');
             }, 3000);
