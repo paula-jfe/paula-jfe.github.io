@@ -4,9 +4,9 @@ import Home from '../pages/Home';
 
 describe('All sections ant its components are present in HomePage', () => {
     it('must have Header components present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
-        const logoIcon = screen.getByAltText('Header J smile logo');
+        const logoIconButton = screen.getByAltText('Header J smile logo');
         const aboutButton = screen.getByRole('button', {
             name: 'Go to about section with experience and education information',
         });
@@ -16,14 +16,14 @@ describe('All sections ant its components are present in HomePage', () => {
         const githubIcon = screen.getByTestId('header-github-icon');
         const linkedinIcon = screen.getByTestId('header-linkedin-icon');
 
-        expect(logoIcon).toBeInTheDocument();
+        expect(logoIconButton).toBeInTheDocument();
         expect(aboutButton).toBeInTheDocument();
         expect(contactButton).toBeInTheDocument();
         expect(githubIcon).toBeInTheDocument();
         expect(linkedinIcon).toBeInTheDocument();
     });
     it('must have HeroBanner components present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const devName = screen.getByText('Jessica Ladislau');
         const devRole = screen.getByText('Software Engineer');
@@ -34,14 +34,14 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(downloadResumeButton).toBeInTheDocument();
     });
     it('must have Carousel of stacks present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
         const listSize = 30;
 
         const listOfIcons = screen.getAllByAltText(/^carousel-icon/);
         expect(listOfIcons.length).toBe(listSize);
     });
     it('must have Info cards components present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const yearsCard = screen.getByText('exp');
         const figmaCard = screen.getByText('Curious?');
@@ -54,7 +54,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(educationCard).toBeInTheDocument();
     });
     it('must have Quality cards components present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const fastBuidCard = screen.getByText('Fast build');
         const bugHunterIcon = screen.getByText('Bug hunter');
@@ -67,7 +67,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(creativeCoderIcon).toBeInTheDocument();
     });
     it('must have How I Turn ideas into interfaces section present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const sectionTitle = screen.getByText('How I turn ideas into interfaces');
         const taskCard = screen.getByText('1. Task');
@@ -84,7 +84,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(launchIcon).toBeInTheDocument();
     });
     it('must have List of feedback present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const sectionTitle = screen.getByText('What people say about me');
         const quickCreateCard = screen.getByText(
@@ -115,7 +115,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(extraMileCard).toBeInTheDocument();
     });
     it('must have Contact section components present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const sectionTitle = screen.getByText("Let's connect");
         const nameInput = screen.getByLabelText('Name');
@@ -130,7 +130,7 @@ describe('All sections ant its components are present in HomePage', () => {
         expect(sendButton).toBeInTheDocument();
     });
     it('must have Footer section present', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const copy = screen.getByText('© All rights reserved');
         const madeBy = screen.getByText('Made by Jessica Ladislau');

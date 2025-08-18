@@ -16,7 +16,7 @@ const mockedSendMessage = api.sendMessage as jest.MockedFunction<typeof api.send
 
 describe('Contact form is working', () => {
     it('should be possible to fill and change input and textarea values', async () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const nameInput = screen.getByLabelText('Name');
         const emailInput = screen.getByLabelText('Email');
@@ -37,7 +37,7 @@ describe('Contact form is working', () => {
         });
     });
     it('should trigger validation errors if no value is provided', async () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const nameInput = screen.getByLabelText('Name');
         const emailInput = screen.getByLabelText('Email');
@@ -61,7 +61,7 @@ describe('Contact form is working', () => {
         });
     });
     it('should trigger validation errors if email is invalid', async () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const emailInput = screen.getByLabelText('Email');
         const sendButton = screen.getByRole('button', { name: 'Send' });
@@ -85,7 +85,7 @@ describe('Contact form is working', () => {
         });
     });
     it('it should send the message when the correct data is filled', async () => {
-        render(<Home />);
+        render(<Home motion={false} />);
         const user = userEvent.setup({ delay: null });
         jest.useFakeTimers();
 
@@ -118,7 +118,7 @@ describe('Contact form is working', () => {
         jest.useRealTimers();
     });
     it('it should show Error in the animated button when errors', async () => {
-        render(<Home />);
+        render(<Home motion={false} />);
         const user = userEvent.setup({ delay: null });
         jest.useFakeTimers();
 

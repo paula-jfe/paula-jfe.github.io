@@ -5,3 +5,7 @@ export interface AnimatedButtonProps extends ButtonHTMLAttributes<HTMLButtonElem
     text?: string;
     onClickFunction?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface HomeProps {
+    motion?: boolean;
+}

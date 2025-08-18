@@ -29,7 +29,7 @@ afterEach(() => {
 
 describe('downloadFile inside Home component', () => {
     it('triggers download when button is clicked', async () => {
-        render(<Home />);
+        render(<Home motion={false} />);
         const downloadResumeButton = screen.getByRole('button', { name: 'Download resume' });
 
         await userEvent.click(downloadResumeButton);

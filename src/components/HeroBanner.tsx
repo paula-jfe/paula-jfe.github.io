@@ -17,7 +17,7 @@ const HeroBanner: React.FC = () => {
     return (
         <div
             id="herobanner-video-section"
-            className="flex flex-col items-center justify-end h-[780px] padding-x-5p gap-8 pb-8"
+            className="gradient-box flex flex-col items-center justify-end h-[780px] padding-x-5p gap-8 pb-8"
         >
             <video
                 preload="auto"

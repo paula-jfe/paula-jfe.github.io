@@ -10,7 +10,7 @@ beforeEach(() => {
 
 describe('grab feedback list is working', () => {
     it('should add cursor-grabbing class on pointer down', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const scroller = screen.getByRole('grab-region') as HTMLDivElement;
         fireEvent.pointerDown(scroller, { clientX: 100, pointerId: 1 });
@@ -21,7 +21,7 @@ describe('grab feedback list is working', () => {
     it('should move scroll position on pointer move', async () => {
         const user = userEvent.setup();
 
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const scroller = screen.getByRole('grab-region') as HTMLDivElement;
 
@@ -41,7 +41,7 @@ describe('grab feedback list is working', () => {
         expect(scroller.scrollLeft).toBe(expectedScrollLeft);
     });
     it('should remove cursor-grabbing class on pointer up', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const scroller = screen.getByRole('grab-region') as HTMLDivElement;
 
@@ -52,7 +52,7 @@ describe('grab feedback list is working', () => {
         expect(scroller).toHaveClass('cursor-grab');
     });
     it('should stop dragging when pointer is canceled', () => {
-        render(<Home />);
+        render(<Home motion={false} />);
 
         const scroller = screen.getByRole('grab-region') as HTMLDivElement;
 

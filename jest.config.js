@@ -9,6 +9,7 @@ module.exports = {
         '!src/index.tsx',
         '!src/context/*',
         '!src/services/*',
+        '!src/helpers/*',
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov'],
