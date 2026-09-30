@@ -1,7 +1,8 @@
-import { FormData, FormspreeResponse, FormspreeAPIResponse } from '../types/sections/Contact';
+import { ContactFormValues, SendMessageResult } from '../types/contact';
+
 const apiURL = 'https://formspree.io/f/mdkdyywe';
 
-export async function sendMessage(form: FormData): Promise<FormspreeAPIResponse> {
+export async function sendMessage(form: ContactFormValues): Promise<SendMessageResult> {
     try {
         const response = await fetch(apiURL, {
             method: 'POST',
@@ -12,23 +13,17 @@ export async function sendMessage(form: FormData): Promise<FormspreeAPIResponse>
             },
         });
 
-        const data: FormspreeAPIResponse = await response.json();
-
         if (response.ok) {
-            return { ok: true, next: data.next };
-        } else {
-            const errorMessage =
-                data.errors && Array.isArray(data.errors)
-                    ? data.errors.map((err: { message: string }) => err.message).join(', ')
-                    : 'Unknown error';
-
-            throw { ok: false, errors: errorMessage } as FormspreeAPIResponse;
-        }
-    } catch (error) {
-        if (typeof error === 'object' && error !== null && 'errors' in error) {
-            return error as FormspreeAPIResponse;
+            return { ok: true, status: response.status };
         }
 
-        return { ok: false, errors: 'Unexpected error occurred' };
+        const data: { errors?: { message: string }[] } = await response.json().catch(() => ({}));
+        const errors = Array.isArray(data.errors)
+            ? data.errors.map((err) => err.message).join(', ')
+            : 'Unknown error';
+
+        return { ok: false, status: response.status, errors };
+    } catch {
+        return { ok: false, errors: 'Network error' };
     }
 }

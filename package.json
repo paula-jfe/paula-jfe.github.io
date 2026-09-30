@@ -13,11 +13,9 @@
         "test": "jest"
     },
     "dependencies": {
-        "@emotion/react": "11.14.0",
-        "@emotion/styled": "11.14.1",
-        "@mui/icons-material": "7.2.0",
-        "@mui/material": "7.2.0",
-        "history": "5.3.0",
+        "@fontsource/outfit": "^5.3.0",
+        "@fontsource/roboto": "^5.3.0",
+        "@fontsource/spline-sans": "^5.3.0",
         "react": "19.1.0",
         "react-dom": "19.1.0",
         "react-router": "7.8.1"
@@ -53,8 +51,5 @@
         "webpack": "5.99.7",
         "webpack-cli": "6.0.1",
         "webpack-dev-server": "5.2.1"
-    },
-    "resolutions": {
-        "@emotion/react": "11.14.0"
     }
 }

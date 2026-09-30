@@ -7,9 +7,6 @@ module.exports = {
         'src/**/*.{ts,tsx}',
         '!src/**/*.d.ts',
         '!src/index.tsx',
-        '!src/context/*',
-        '!src/services/*',
-        '!src/helpers/*',
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov'],
@@ -24,7 +21,7 @@ module.exports = {
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-        '\\.(jpg|jpeg|png|gif|mp4|webm|ogg|pdf|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
+        '\\.(jpg|jpeg|png|gif|webp|pdf|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
     },
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
     testTimeout: 10000,

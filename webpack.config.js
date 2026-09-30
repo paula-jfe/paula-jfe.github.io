@@ -2,20 +2,23 @@ const path = require('path');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
-const deps = require('./package.json').dependencies;
-
-const publicPathForDevServer = '/';
 
 console.log(`Running in ${isDevelopment ? 'development' : 'production'} mode`);
+
+const htmlOptions = {
+    template: './public/index.html',
+    favicon: './public/favicon.ico',
+    minify: false,
+};
 
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
     entry: './src/index.tsx',
     output: {
-        filename: 'bundle.js',
+        filename: isDevelopment ? 'bundle.js' : 'bundle.[contenthash:8].js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: isDevelopment ? publicPathForDevServer : './',
+        // Absolute paths so nested routes (e.g. /work/brightfield-solar) resolve assets.
+        publicPath: '/',
         clean: true,
     },
     devServer: {
@@ -23,7 +26,7 @@ module.exports = {
             directory: path.resolve(__dirname, 'public'),
         },
         devMiddleware: {
-            publicPath: isDevelopment ? publicPathForDevServer : './',
+            publicPath: '/',
         },
         port: 3000,
         open: true,
@@ -53,7 +56,14 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'postcss-loader'],
             },
             {
-                test: /\.(png|jpe?g|gif|mp4|webm|ogg|svg|pdf)$/,
+                test: /\.(woff2?)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][hash][ext]',
+                },
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp|svg|pdf)$/,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/[name][hash][ext]',
@@ -62,25 +72,12 @@ module.exports = {
         ],
     },
     plugins: [
-        /* new ModuleFederationPlugin({
-            name: 'container-app',
-            remotes: {},
-            exposes: {},
-            shared: {
-                react: { singleton: true, eager: true, requiredVersion: deps.react },
-                'react-dom': { singleton: true, eager: true, requiredVersion: deps['react-dom'] },
-                '@emotion/react': {
-                    singleton: true,
-                    eager: true,
-                    requiredVersion: deps['@emotion/react'],
-                },
-            },
-        }), */
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            favicon: './public/favicon.ico',
-            minify: false,
-        }),
+        new HtmlWebpackPlugin(htmlOptions),
+        // GitHub Pages serves 404.html for unknown paths: shipping the app there lets
+        // deep links such as /work/brightfield-solar boot the client-side router.
+        new HtmlWebpackPlugin({ ...htmlOptions, filename: '404.html' }),
+        // Real entry point for the case study so the route answers 200 (not 404) on GitHub Pages.
+        new HtmlWebpackPlugin({ ...htmlOptions, filename: 'work/brightfield-solar/index.html' }),
         isDevelopment && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean),
 };
