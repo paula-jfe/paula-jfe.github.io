@@ -47,6 +47,9 @@ describe('ContactForm', () => {
 
         expect(await screen.findByRole('alert')).toHaveTextContent('Please fix 1 field');
         expect(screen.getByLabelText('Name')).not.toHaveAttribute('aria-invalid');
+        // Focus moves to the error summary on the next frame; wait for it before typing so the
+        // keystrokes can't be split between the field and the summary on slower machines.
+        await waitFor(() => expect(screen.getByRole('alert')).toHaveFocus());
 
         await userEvent.type(screen.getByLabelText('Email'), '.com');
         expect(screen.getByLabelText('Email')).not.toHaveAttribute('aria-invalid');
