@@ -1,51 +1,63 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import Home from '../pages/Home';
-import * as scrollUtils from '../helpers/handleClickScroll';
+import { act, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-jest.mock('../helpers/handleClickScroll', () => ({
-    handleClickScroll: jest.fn(),
-}));
+import { renderApp } from '../test-utils/renderApp';
 
-afterEach(() => {
-    jest.clearAllMocks();
-});
+type MockObserver = { trigger: (id: string) => void };
+const observers = () =>
+    (globalThis.IntersectionObserver as unknown as { instances: MockObserver[] }).instances;
 
-describe('changing page location is possible', () => {
-    it('should update page location on button click and go to about section', () => {
-        render(<Home motion={false} />);
-        const aboutButton = screen.getByRole('button', {
-            name: 'Go to about section with experience and education information',
-        });
-
-        fireEvent.click(aboutButton);
-
-        const handleClickMethod = scrollUtils.handleClickScroll;
-        expect(handleClickMethod).toHaveBeenCalled();
-        expect(handleClickMethod).toHaveBeenCalledTimes(1);
-        expect(handleClickMethod).toHaveBeenCalledWith(expect.anything(), 'about');
+describe('Header', () => {
+    it('uses in-page hash links on the home page', () => {
+        renderApp('/');
+        const nav = screen.getByRole('navigation', { name: 'Main' });
+        expect(within(nav).getByRole('link', { name: 'Work' })).toHaveAttribute('href', '#work');
     });
-    it('should update page location on button click and go to contact section', () => {
-        render(<Home motion={false} />);
-        const contactButton = screen.getByRole('button', {
-            name: 'Go to contact section with contact form',
-        });
 
-        fireEvent.click(contactButton);
-
-        const handleClickMethod = scrollUtils.handleClickScroll;
-        expect(handleClickMethod).toHaveBeenCalled();
-        expect(handleClickMethod).toHaveBeenCalledTimes(1);
-        expect(handleClickMethod).toHaveBeenCalledWith(expect.anything(), 'contact');
+    it('routes back to home sections from other pages', () => {
+        renderApp('/work/brightfield-solar');
+        const nav = screen.getByRole('navigation', { name: 'Main' });
+        expect(within(nav).getByRole('link', { name: 'Work' })).toHaveAttribute('href', '/#work');
     });
-    it('should update page location on button click and go to herobanner section', () => {
-        render(<Home motion={false} />);
-        const logoIconButton = screen.getByAltText('Header J smile logo');
 
-        fireEvent.click(logoIconButton);
+    it('marks the section in view as the current location', () => {
+        renderApp('/');
+        act(() => observers().forEach((observer) => observer.trigger('process')));
+        const nav = screen.getByRole('navigation', { name: 'Main' });
+        expect(within(nav).getByRole('link', { name: 'Process' })).toHaveAttribute(
+            'aria-current',
+            'location',
+        );
+        expect(within(nav).getByRole('link', { name: 'About' })).not.toHaveAttribute('aria-current');
+    });
 
-        const handleClickMethod = scrollUtils.handleClickScroll;
-        expect(handleClickMethod).toHaveBeenCalled();
-        expect(handleClickMethod).toHaveBeenCalledTimes(1);
-        expect(handleClickMethod).toHaveBeenCalledWith(expect.anything(), 'herobanner');
+    it('toggles the mobile menu and closes it with Escape, returning focus', async () => {
+        renderApp('/');
+        const toggle = screen.getByRole('button', { name: 'Open menu' });
+        const menu = document.getElementById('mobile-menu') as HTMLElement;
+
+        expect(toggle).toHaveAttribute('aria-expanded', 'false');
+        expect(menu).not.toBeVisible();
+
+        await userEvent.click(toggle);
+        expect(toggle).toHaveAttribute('aria-expanded', 'true');
+        expect(toggle).toHaveAccessibleName('Close menu');
+        expect(menu).toBeVisible();
+
+        await userEvent.keyboard('{Escape}');
+        expect(toggle).toHaveAttribute('aria-expanded', 'false');
+        expect(toggle).toHaveFocus();
+    });
+
+    it('closes the mobile menu after choosing a link', async () => {
+        renderApp('/');
+        await userEvent.click(screen.getByRole('button', { name: 'Open menu' }));
+        const menu = document.getElementById('mobile-menu') as HTMLElement;
+        await userEvent.click(within(menu).getByRole('link', { name: 'About' }));
+        expect(menu).not.toBeVisible();
+
+        await userEvent.click(screen.getByRole('button', { name: 'Open menu' }));
+        await userEvent.click(within(menu).getByRole('link', { name: 'Get in touch' }));
+        expect(menu).not.toBeVisible();
     });
 });

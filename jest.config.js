@@ -1,5 +1,4 @@
 module.exports = {
-    preset: 'ts-jest',
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['<rootDir>/src/jest.setup.ts'],
     collectCoverage: true,
@@ -7,9 +6,6 @@ module.exports = {
         'src/**/*.{ts,tsx}',
         '!src/**/*.d.ts',
         '!src/index.tsx',
-        '!src/context/*',
-        '!src/services/*',
-        '!src/helpers/*',
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov'],
@@ -23,12 +19,15 @@ module.exports = {
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     moduleNameMapper: {
-        '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-        '\\.(jpg|jpeg|png|gif|mp4|webm|ogg|pdf|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
+        '\\.(jpg|jpeg|png|gif|webp|pdf|svg|woff2)$': '<rootDir>/src/__mocks__/fileMock.js',
     },
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
     testTimeout: 10000,
+    // babel-jest (bundled with Jest) compiles TS/TSX with .babelrc, the same pipeline as webpack.
+    // Type checking runs separately (npm run typecheck).
     transform: {
-        '^.+\\.(ts|tsx)$': 'ts-jest',
+        '^.+\\.(m?js|jsx|tsx?)$': 'babel-jest',
     },
+    // React Router 8 and its dependencies ship ES modules only: let Babel compile them for Jest.
+    transformIgnorePatterns: ['/node_modules/(?!(react-router|cookie-es|@remix-run)/)'],
 };

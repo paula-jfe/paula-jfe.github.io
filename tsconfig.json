@@ -1,26 +1,30 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "lib": ["dom", "es2015"],
-        "allowJs": true,
+        "target": "es2019",
+        "lib": ["dom", "dom.iterable", "es2020"],
+        "allowJs": false,
         "jsx": "react-jsx",
-        "moduleResolution": "node",
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "noImplicitAny": true,
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "outDir": "./dist"
+        "verbatimModuleSyntax": true,
+        "types": ["jest", "node"]
     },
     "include": ["src/**/*"]
 }
 // This file is used to configure the TypeScript compiler options for the project.
 // It specifies the target ECMAScript version, the libraries to include, and other compiler options.
 // The "include" option specifies the files to include in the compilation process.
-// The "outDir" option specifies the output directory for the compiled files.
 // The "allowJs" option allows JavaScript files to be compiled along with TypeScript files.
 // The "jsx" option specifies the JSX code generation mode.
-// The "moduleResolution" option specifies the module resolution strategy to use.
+// "module": "esnext" + "moduleResolution": "bundler" match how webpack resolves imports (TypeScript 6+ deprecates "node").
+// "types" lists the global typings explicitly (TypeScript 6+ no longer loads every @types package): Jest globals and Node (util, used by jest.setup.ts).
+// "verbatimModuleSyntax" requires `import type` for type-only imports, so Babel removes them safely.
+// TypeScript only type-checks here (npm run typecheck): Babel and webpack emit the bundle, so there is no outDir.
 // The "esModuleInterop" option enables emit interoperability between CommonJS and ES Modules.
 // The "skipLibCheck" option skips type checking of declaration files.
 // The "forceConsistentCasingInFileNames" option ensures that file names are case-sensitive.

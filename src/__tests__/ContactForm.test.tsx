@@ -1,153 +1,148 @@
-import { render, screen, waitFor, act } from '@testing-library/react';
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Home from '../pages/Home';
+
+import ContactForm, { MESSAGE_MAX, validate } from '../components/sections/ContactForm';
 import * as api from '../services/api';
-import { sendMessageSuccessMock, sendMessageFailMock } from '../__mocks__/sendMessageMock';
 
-jest.mock('../services/api', () => ({
-    sendMessage: jest.fn(),
-}));
+jest.mock('../services/api');
+const sendMessage = api.sendMessage as jest.MockedFunction<typeof api.sendMessage>;
 
-beforeEach(() => {
-    jest.clearAllMocks();
-});
+const VALID_MESSAGE = 'Hi Jessica, we are rebuilding our marketing site.';
 
-const mockedSendMessage = api.sendMessage as jest.MockedFunction<typeof api.sendMessage>;
+const fill = async (name: string, email: string, message: string) => {
+    if (name) await userEvent.type(screen.getByLabelText('Name'), name);
+    if (email) await userEvent.type(screen.getByLabelText('Email'), email);
+    if (message) await userEvent.type(screen.getByLabelText('Message'), message);
+};
 
-describe('Contact form is working', () => {
-    it('should be possible to fill and change input and textarea values', async () => {
-        render(<Home motion={false} />);
+const submit = () => userEvent.click(screen.getByRole('button', { name: /send message|try again/i }));
 
-        const nameInput = screen.getByLabelText('Name');
-        const emailInput = screen.getByLabelText('Email');
-        const messageInput = screen.getByLabelText('Message');
-
-        expect(nameInput).toHaveValue('');
-        expect(emailInput).toHaveValue('');
-        expect(messageInput).toHaveValue('');
-
-        await userEvent.type(nameInput, 'Name test');
-        await userEvent.type(emailInput, 'Email test');
-        await userEvent.type(messageInput, 'Message test');
-
-        await waitFor(() => {
-            expect(nameInput).toHaveValue('Name test');
-            expect(emailInput).toHaveValue('Email test');
-            expect(messageInput).toHaveValue('Message test');
-        });
+describe('ContactForm', () => {
+    beforeEach(() => {
+        sendMessage.mockReset();
+        Object.defineProperty(window.navigator, 'onLine', { value: true, configurable: true });
     });
-    it('should trigger validation errors if no value is provided', async () => {
-        render(<Home motion={false} />);
 
-        const nameInput = screen.getByLabelText('Name');
-        const emailInput = screen.getByLabelText('Email');
-        const messageInput = screen.getByLabelText('Message');
-        const sendButton = screen.getByRole('button', { name: 'Send' });
+    it('shows an error summary and inline errors when submitted empty', async () => {
+        render(<ContactForm />);
+        await submit();
 
-        expect(nameInput).toHaveValue('');
-        expect(emailInput).toHaveValue('');
-        expect(messageInput).toHaveValue('');
-
-        await userEvent.click(sendButton);
-
-        const nameError = screen.queryByText('Name is required');
-        const emailError = screen.queryByText('Email is required');
-        const messageError = screen.queryByText('Message is required');
-
-        await waitFor(() => {
-            expect(nameError).toBeInTheDocument();
-            expect(emailError).toBeInTheDocument();
-            expect(messageError).toBeInTheDocument();
-        });
+        expect(await screen.findByRole('alert')).toHaveTextContent('Please fix 3 fields');
+        expect(screen.getByLabelText('Name')).toHaveAttribute('aria-invalid', 'true');
+        expect(screen.getByLabelText('Name')).toHaveAccessibleDescription('Please enter your name.');
+        expect(screen.getByLabelText('Email')).toHaveAccessibleDescription(
+            'Please enter a valid email address.',
+        );
+        expect(screen.getByLabelText('Message')).toHaveAccessibleDescription(
+            'Please write at least 20 characters.',
+        );
+        expect(sendMessage).not.toHaveBeenCalled();
     });
-    it('should trigger validation errors if email is invalid', async () => {
-        render(<Home motion={false} />);
 
-        const emailInput = screen.getByLabelText('Email');
-        const sendButton = screen.getByRole('button', { name: 'Send' });
+    it('flags only the invalid field and clears it as the user fixes it', async () => {
+        render(<ContactForm />);
+        await fill('Jane Smith', 'jane@company', VALID_MESSAGE);
+        await submit();
 
-        expect(emailInput).toHaveValue('');
+        expect(await screen.findByRole('alert')).toHaveTextContent('Please fix 1 field');
+        expect(screen.getByLabelText('Name')).not.toHaveAttribute('aria-invalid');
+        // Focus moves to the error summary on the next frame; wait for it before typing so the
+        // keystrokes can't be split between the field and the summary on slower machines.
+        await waitFor(() => expect(screen.getByRole('alert')).toHaveFocus());
 
-        await userEvent.type(emailInput, 'Email test');
-        await userEvent.click(sendButton);
-
-        const queryEmailError = () => screen.queryByText('Email is invalid');
-
-        await waitFor(() => {
-            expect(queryEmailError()).toBeInTheDocument();
-        });
-
-        await userEvent.type(emailInput, 'email@test.com');
-        await userEvent.click(sendButton);
-
-        await waitFor(() => {
-            expect(queryEmailError()).not.toBeInTheDocument();
-        });
+        await userEvent.type(screen.getByLabelText('Email'), '.com');
+        expect(screen.getByLabelText('Email')).not.toHaveAttribute('aria-invalid');
     });
-    it('it should send the message when the correct data is filled', async () => {
-        render(<Home motion={false} />);
-        const user = userEvent.setup({ delay: null });
-        jest.useFakeTimers();
 
-        mockedSendMessage.mockResolvedValueOnce(sendMessageSuccessMock);
+    it('validates a field on blur only when it has content', async () => {
+        render(<ContactForm />);
+        await userEvent.click(screen.getByLabelText('Email'));
+        await userEvent.tab();
+        expect(screen.getByLabelText('Email')).not.toHaveAttribute('aria-invalid');
 
-        const nameInput = screen.getByLabelText('Name');
-        const emailInput = screen.getByLabelText('Email');
-        const messageInput = screen.getByLabelText('Message');
-        const sendButton = screen.getByRole('button', { name: 'Send' });
+        await userEvent.type(screen.getByLabelText('Email'), 'nope');
+        await userEvent.tab();
+        expect(screen.getByLabelText('Email')).toHaveAttribute('aria-invalid', 'true');
 
-        expect(nameInput).toHaveValue('');
-        expect(emailInput).toHaveValue('');
-        expect(messageInput).toHaveValue('');
-
-        await user.type(nameInput, 'Name test');
-        await user.type(emailInput, 'email@test.com');
-        await user.type(messageInput, 'Message test');
-        await user.click(sendButton);
-
-        const sentButton = await screen.findByRole('button', { name: 'Sent!' });
-        expect(sentButton).toBeInTheDocument();
-
-        act(() => {
-            jest.runAllTimers();
-        });
-
-        const sentButtonAfter3s = await screen.findByRole('button', { name: 'Send' });
-        expect(sentButtonAfter3s).toBeInTheDocument();
-
-        jest.useRealTimers();
+        await userEvent.type(screen.getByLabelText('Email'), '@mail.com');
+        await userEvent.tab();
+        expect(screen.getByLabelText('Email')).not.toHaveAttribute('aria-invalid');
     });
-    it('it should show Error in the animated button when errors', async () => {
-        render(<Home motion={false} />);
-        const user = userEvent.setup({ delay: null });
-        jest.useFakeTimers();
 
-        mockedSendMessage.mockResolvedValueOnce(sendMessageFailMock);
+    it('shows a live counter near the limit and an error above it', () => {
+        expect(validate({ name: 'Jane', email: 'jane@company.com', message: 'x'.repeat(MESSAGE_MAX + 143) }))
+            .toEqual({ message: '2,143 / 2,000 characters. Please shorten your message.' });
+    });
 
-        const nameInput = screen.getByLabelText('Name');
-        const emailInput = screen.getByLabelText('Email');
-        const messageInput = screen.getByLabelText('Message');
-        const sendButton = screen.getByRole('button', { name: 'Send' });
+    it('renders the character counter hint near the limit', async () => {
+        render(<ContactForm />);
+        const message = screen.getByLabelText('Message');
+        await userEvent.click(message);
+        await userEvent.paste('x'.repeat(1850));
+        expect(message).toHaveAccessibleDescription('1,850 / 2,000 characters');
+    });
 
-        expect(nameInput).toHaveValue('');
-        expect(emailInput).toHaveValue('');
-        expect(messageInput).toHaveValue('');
+    it('sends trimmed values, blocks double submits, and confirms success', async () => {
+        let resolve: (value: { ok: boolean }) => void = () => {};
+        sendMessage.mockImplementation(() => new Promise((r) => (resolve = r)));
+        render(<ContactForm />);
+        await fill('  Jane Smith ', 'jane@company.com', VALID_MESSAGE);
+        await submit();
 
-        await user.type(nameInput, 'Name test');
-        await user.type(emailInput, 'email@test.com');
-        await user.type(messageInput, 'Message test');
-        await user.click(sendButton);
-
-        const sentButton = await screen.findByRole('button', { name: 'Error' });
-        expect(sentButton).toBeInTheDocument();
-
-        act(() => {
-            jest.runAllTimers();
+        const sending = screen.getByRole('button', { name: 'Sending…' });
+        expect(sending).toBeDisabled();
+        expect(screen.getByLabelText('Name')).toBeDisabled();
+        expect(sendMessage).toHaveBeenCalledWith({
+            name: 'Jane Smith',
+            email: 'jane@company.com',
+            message: VALID_MESSAGE,
         });
 
-        const sentButtonAfter3s = await screen.findByRole('button', { name: 'Send' });
-        expect(sentButtonAfter3s).toBeInTheDocument();
+        resolve({ ok: true });
+        expect(await screen.findByRole('status')).toHaveTextContent(
+            'Message sent!Thanks, Jane. I usually reply within a day.',
+        );
 
-        jest.useRealTimers();
+        await userEvent.click(screen.getByRole('button', { name: 'Send another message' }));
+        expect(screen.getByLabelText('Name')).toHaveValue('');
+    });
+
+    it('keeps the message and offers a retry when the server fails', async () => {
+        sendMessage.mockResolvedValueOnce({ ok: false, status: 500 }).mockResolvedValueOnce({ ok: true });
+        render(<ContactForm />);
+        await fill('Jane Smith', 'jane@company.com', VALID_MESSAGE);
+        await submit();
+
+        expect(await screen.findByRole('alert')).toHaveTextContent('Message not sent');
+        expect(screen.getByLabelText('Message')).toHaveValue(VALID_MESSAGE);
+
+        await userEvent.click(screen.getByRole('button', { name: 'Try again' }));
+        expect(await screen.findByRole('status')).toHaveTextContent('Message sent!');
+    });
+
+    it('explains rate limiting (HTTP 429)', async () => {
+        sendMessage.mockResolvedValueOnce({ ok: false, status: 429 });
+        render(<ContactForm />);
+        await fill('Jane Smith', 'jane@company.com', VALID_MESSAGE);
+        await submit();
+        expect(await screen.findByRole('alert')).toHaveTextContent('Too many attempts');
+    });
+
+    it('does not call the API when offline', async () => {
+        Object.defineProperty(window.navigator, 'onLine', { value: false, configurable: true });
+        render(<ContactForm />);
+        await fill('Jane Smith', 'jane@company.com', VALID_MESSAGE);
+        await submit();
+        expect(await screen.findByRole('alert')).toHaveTextContent('You’re offline');
+        expect(sendMessage).not.toHaveBeenCalled();
+    });
+
+    it('silently drops submissions that fill the honeypot', async () => {
+        render(<ContactForm />);
+        await userEvent.type(screen.getByLabelText('Company', { selector: 'input' }), 'spam inc');
+        await submit();
+        await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent('Message sent!'));
+        expect(sendMessage).not.toHaveBeenCalled();
     });
 });

@@ -1,159 +1,186 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 
-/* CSS Reset */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Design tokens live in tailwind.config.js (mirrors the Figma variables). */
+@config '../tailwind.config.js';
+
+/*
+ * Self-hosted Google Fonts (SIL Open Font License 1.1, see src/assets/fonts/OFL-*.txt).
+ * Downloaded from fonts.google.com, subset to Latin (incl. Portuguese accents) and converted to WOFF2.
+ */
+@font-face {
+    font-family: 'Spline Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/SplineSans-Regular.woff2') format('woff2');
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
+@font-face {
+    font-family: 'Spline Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('./assets/fonts/SplineSans-Medium.woff2') format('woff2');
 }
 
-html {
-    scroll-behavior: smooth;
+@font-face {
+    font-family: 'Spline Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('./assets/fonts/SplineSans-SemiBold.woff2') format('woff2');
 }
 
-.about {
-    background: linear-gradient(45deg, #f9dfaf 20%, #fdf6fc 80%);
-    z-index: -1;
+@font-face {
+    font-family: 'Spline Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('./assets/fonts/SplineSans-Bold.woff2') format('woff2');
 }
 
-.card-icon-body {
-    line-height: 1 !important;
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('./assets/fonts/Roboto-Bold.woff2') format('woff2');
 }
 
-.fancy-button {
-    align-items: center;
-    background-color: #b940a7;
-    border: none;
-    border-radius: 0.2rem;
-    color: #fdf6fc;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    overflow: hidden;
-    padding: 12px 24px;
-    position: relative;
-    transition: padding-right 0.3s ease;
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url('./assets/fonts/Roboto-LightItalic.woff2') format('woff2');
 }
 
-.fancy-button.with-icon:hover {
-    padding-right: 48px;
+@font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('./assets/fonts/Outfit-ExtraBold.woff2') format('woff2');
 }
 
-.header {
-    align-items: center;
-    background: #fdf6fc;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    height: 80px;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-}
-
-.logo {
-    cursor: pointer;
-    height: 40px;
-    width: 40px;
-}
-
-.gradient-box {
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.gradient-box::before {
-    background: linear-gradient(45deg, #7797dd 0%, #a45cb9 30%, #b940a7 60%, #9747ff 100%);
-    color: #fdf6fc;
-    content: '';
-    inset: 0;
-    position: absolute;
-    opacity: 0.85;
-    z-index: -1;
-}
-
-.marquee-container {
-    overflow: hidden;
-    width: 100%;
-}
-
-.marquee-track {
-    display: flex;
-    width: max-content;
-    animation: scroll 20s linear infinite;
-}
-
-.marquee-content {
-    display: flex;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50.5%);
-    }
-}
-
-.padding-x-5p {
-    padding-left: 2%;
-    padding-right: 2%;
+/* Font-size tokens (Figma collection "Font Size"): Mobile / Tablet / Desktop modes */
+:root {
+    --font-size-display-xl: 44px;
+    --font-size-display-lg: 40px;
+    --font-size-heading-1: 34px;
+    --font-size-heading-2: 30px;
+    --font-size-heading-3: 26px;
+    --font-size-heading-4: 24px;
+    --font-size-heading-5: 20px;
+    --font-size-heading-6: 18px;
+    --font-size-body-lg: 17px;
+    --font-size-body: 16px;
+    --font-size-body-sm: 14px;
+    --font-size-caption: 12px;
+    --header-height: 72px;
 }
 
 @media (min-width: 768px) {
-    .padding-x-5p {
-        padding-left: 8%;
-        padding-right: 8%;
+    :root {
+        --font-size-display-xl: 72px;
+        --font-size-display-lg: 64px;
+        --font-size-heading-1: 48px;
+        --font-size-heading-2: 40px;
+        --font-size-heading-3: 32px;
+        --font-size-heading-4: 28px;
+        --font-size-heading-5: 22px;
+        --font-size-heading-6: 20px;
+        --font-size-body-lg: 18px;
+        --header-height: 80px;
     }
 }
 
-@media (min-width: 1024px) {
-    .padding-x-5p {
-        padding-left: 10%;
-        padding-right: 10%;
+@media (min-width: 1280px) {
+    :root {
+        --font-size-display-xl: 96px;
+        --font-size-display-lg: 88px;
+        --font-size-heading-1: 64px;
+        --font-size-heading-2: 48px;
+        --font-size-heading-3: 40px;
+        --font-size-heading-4: 32px;
+        --font-size-heading-5: 24px;
     }
 }
 
-@media (min-width: 1440px) {
-    .padding-x-5p {
-        padding-left: 12%;
-        padding-right: 12%;
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-height);
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        @apply bg-surface-page font-sans text-body text-ink antialiased;
+    }
+
+    h1,
+    h2,
+    h3 {
+        @apply font-display;
+    }
+
+    button:not(:disabled),
+    [role='button']:not([aria-disabled='true']) {
+        cursor: pointer;
+    }
+
+    /* Tailwind 4 defaults borders to currentColor; keep the v3 default. */
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+
+    ::selection {
+        @apply bg-brand text-white;
+    }
+
+    :focus-visible {
+        outline: none;
     }
 }
 
-.scrollfeed-item {
-    scroll-snap-align: start;
+@layer components {
+    .container-content {
+        @apply mx-auto w-full max-w-content px-5 md:px-10 xl:px-0;
+    }
+
+    .section-y {
+        @apply py-16 md:py-20 xl:py-28;
+    }
+
+    .text-outline {
+        color: transparent;
+        -webkit-text-stroke: 3px rgba(168, 85, 247, 0.55);
+    }
 }
 
-.scrollfeed-hide::-webkit-scrollbar {
-    display: none;
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
-.scrollfeed-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+/* Focus rings are utilities (not components) so they win over shadow-* utilities such as shadow-button. */
+@utility focus-ring {
+    @apply focus-visible:shadow-[0_0_0_4px_rgba(127,19,236,0.35)];
 }
 
-.scrollfeed-no-select {
-    user-select: none;
-}
-
-.scrollfeed-webkit-overflow-scrolling-touch {
-    -webkit-overflow-scrolling: touch;
-}
-
-.text-card-body {
-    line-height: 2 !important;
+@utility focus-ring-light {
+    @apply focus-visible:shadow-[0_0_0_4px_rgba(255,255,255,0.45)];
 }
