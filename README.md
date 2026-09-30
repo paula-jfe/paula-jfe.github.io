@@ -13,8 +13,8 @@ Personal portfolio at **https://paula-jfe.github.io/**, designed in Figma and bu
 
 ## Tech stack
 
--   React 19 + React Router 7 + TypeScript
--   Tailwind CSS 3 (PostCSS) · Webpack 5 · Babel
+-   React 19 + React Router 8
+-   Tailwind CSS 4 (PostCSS) · Webpack 5 · Babel 8 · TypeScript 7
 -   Jest + React Testing Library (coverage threshold 80%)
 -   GitHub Actions → GitHub Pages
 
@@ -23,7 +23,7 @@ Personal portfolio at **https://paula-jfe.github.io/**, designed in Figma and bu
 ```bash
 git clone https://github.com/paula-jfe/paula-jfe.github.io.git
 cd paula-jfe.github.io
-npm install        # requires Node.js 22.15+
+npm install        # requires Node.js 22.22+ (or 24.11+)
 npm start          # dev server on http://localhost:3000
 npm test           # unit tests with coverage
 npm run typecheck  # TypeScript check

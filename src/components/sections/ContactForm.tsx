@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { EMAIL } from '../../data/content';
 import * as api from '../../services/api';
-import { ContactField, ContactFormErrors, ContactFormValues } from '../../types/contact';
+import type { ContactField, ContactFormErrors, ContactFormValues } from '../../types/contact';
 import Button from '../ui/Button';
 import FormField from '../ui/FormField';
 import Icon from '../ui/Icon';
@@ -64,7 +64,7 @@ const Alert: React.FC<{ title: string; children: React.ReactNode; alertRef?: Rea
         ref={alertRef}
         role="alert"
         tabIndex={-1}
-        className="flex gap-3 rounded-sm border border-danger/30 bg-danger-bg px-4 py-3.5 focus:outline-none focus-visible:shadow-[0_0_0_4px_rgba(217,45,53,0.25)]"
+        className="flex gap-3 rounded-sm border border-danger/30 bg-danger-bg px-4 py-3.5 focus:outline-hidden focus-visible:shadow-[0_0_0_4px_rgba(217,45,53,0.25)]"
     >
         <span
             aria-hidden="true"
@@ -175,7 +175,7 @@ const ContactForm: React.FC = () => {
                 ref={successRef}
                 role="status"
                 tabIndex={-1}
-                className="flex flex-col items-center gap-4 rounded-lg bg-white px-6 py-14 text-center shadow-[0_24px_48px_0_rgba(26,0,51,0.18)] focus:outline-none md:px-10"
+                className="flex flex-col items-center gap-4 rounded-lg bg-white px-6 py-14 text-center shadow-[0_24px_48px_0_rgba(26,0,51,0.18)] focus:outline-hidden md:px-10"
             >
                 <span className="flex h-16 w-16 items-center justify-center rounded-full bg-success-bg text-success">
                     <Icon name="check" size={30} strokeWidth={2.5} />

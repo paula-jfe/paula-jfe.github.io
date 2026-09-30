@@ -1,5 +1,4 @@
 module.exports = {
-    preset: 'ts-jest',
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['<rootDir>/src/jest.setup.ts'],
     collectCoverage: true,
@@ -24,7 +23,11 @@ module.exports = {
     },
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
     testTimeout: 10000,
+    // babel-jest (bundled with Jest) compiles TS/TSX with .babelrc, the same pipeline as webpack.
+    // Type checking runs separately (npm run typecheck).
     transform: {
-        '^.+\\.(ts|tsx)$': 'ts-jest',
+        '^.+\\.(m?js|jsx|tsx?)$': 'babel-jest',
     },
+    // React Router 8 and its dependencies ship ES modules only: let Babel compile them for Jest.
+    transformIgnorePatterns: ['/node_modules/(?!(react-router|cookie-es|@remix-run)/)'],
 };

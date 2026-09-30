@@ -17,7 +17,7 @@ interface FormFieldProps {
 }
 
 const fieldBase =
-    'w-full rounded-sm border-[1.5px] bg-surface-page px-4 font-sans text-body text-ink placeholder:text-placeholder transition-[border-color,box-shadow,background-color] duration-200 ease-out hover:border-brand-subtle focus:border-2 focus:border-brand focus:bg-white focus:shadow-[0_0_0_4px_rgba(127,19,236,0.15)] focus:outline-none disabled:cursor-not-allowed disabled:opacity-70';
+    'w-full rounded-sm border-[1.5px] bg-surface-page px-4 font-sans text-body text-ink placeholder:text-placeholder transition-[border-color,box-shadow,background-color] duration-200 ease-out hover:border-brand-subtle focus:border-2 focus:border-brand focus:bg-white focus:shadow-[0_0_0_4px_rgba(127,19,236,0.15)] focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-70';
 
 const FormField: React.FC<FormFieldProps> = ({
     id,

@@ -2,13 +2,11 @@
 // Design tokens mirror the Figma variables (collections: Color, Font Size, Radius).
 // Font sizes point to CSS custom properties defined in src/index.css, which switch
 // values per breakpoint (Mobile < 768px, Tablet >= 768px, Desktop >= 1280px).
+// Breakpoints are Tailwind's defaults: md = 48rem (768px), xl = 80rem (1280px).
 module.exports = {
     content: ['./src/**/*.{js,ts,jsx,tsx}', './public/index.html'],
     theme: {
         extend: {
-            screens: {
-                xl: '1280px',
-            },
             fontFamily: {
                 display: ['Roboto', 'system-ui', 'sans-serif'],
                 sans: ['"Spline Sans"', 'system-ui', 'sans-serif'],

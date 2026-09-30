@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Accent, EXPERIENCE_HIGHLIGHTS } from '../../data/content';
+import { type Accent, EXPERIENCE_HIGHLIGHTS } from '../../data/content';
 import Icon from '../ui/Icon';
 
 const accentStyles: Record<Accent, { border: string; icon: string }> = {

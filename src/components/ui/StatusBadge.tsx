@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ProjectStatus } from '../../data/content';
+import type { ProjectStatus } from '../../data/content';
 
 const styles: Record<ProjectStatus, { wrap: string; dot: string }> = {
     Live: { wrap: 'bg-success-bg text-success', dot: 'bg-success-dot' },

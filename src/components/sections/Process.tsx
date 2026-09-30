@@ -33,7 +33,7 @@ const Process: React.FC = () => (
                             <span className="sr-only">Step {step.number}: </span>
                             {step.title}
                         </h3>
-                        <p className="flex-1 text-body-sm leading-[1.55] text-muted xl:text-body-sm">
+                        <p className="flex-1 text-body-sm leading-[1.55] text-muted xl:leading-normal">
                             {step.description}
                         </p>
                         <ul className="flex flex-wrap gap-1.5" aria-label={`${step.title} tools`}>

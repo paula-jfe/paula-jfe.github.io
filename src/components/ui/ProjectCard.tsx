@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import { Project } from '../../data/content';
+import type { Project } from '../../data/content';
 import Icon from './Icon';
 import StatusBadge from './StatusBadge';
 
@@ -39,7 +39,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                     {interactive ? (
                         <Link
                             to={caseStudy as string}
-                            className="outline-none after:absolute after:inset-0 after:content-['']"
+                            className="outline-hidden after:absolute after:inset-0 after:content-['']"
                         >
                             {title}
                         </Link>

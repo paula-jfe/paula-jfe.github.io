@@ -35,7 +35,7 @@ const App: React.FC = () => (
         </a>
         <ScrollManager />
         <Header />
-        <main id="main" tabIndex={-1} className="focus:outline-none">
+        <main id="main" tabIndex={-1} className="focus:outline-hidden">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/work/brightfield-solar" element={<CaseBrightfield />} />

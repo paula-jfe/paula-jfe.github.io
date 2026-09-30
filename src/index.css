@@ -1,6 +1,7 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+/* Design tokens live in tailwind.config.js (mirrors the Figma variables). */
+@config '../tailwind.config.js';
 
 /*
  * Self-hosted Google Fonts (SIL Open Font License 1.1, see src/assets/fonts/OFL-*.txt).
@@ -123,6 +124,20 @@
         @apply font-display;
     }
 
+    button:not(:disabled),
+    [role='button']:not([aria-disabled='true']) {
+        cursor: pointer;
+    }
+
+    /* Tailwind 4 defaults borders to currentColor; keep the v3 default. */
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+
     ::selection {
         @apply bg-brand text-white;
     }
@@ -139,14 +154,6 @@
 
     .section-y {
         @apply py-16 md:py-20 xl:py-28;
-    }
-
-    .focus-ring {
-        @apply focus-visible:shadow-[0_0_0_4px_rgba(127,19,236,0.35)];
-    }
-
-    .focus-ring-light {
-        @apply focus-visible:shadow-[0_0_0_4px_rgba(255,255,255,0.45)];
     }
 
     .text-outline {
@@ -167,4 +174,13 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Focus rings are utilities (not components) so they win over shadow-* utilities such as shadow-button. */
+@utility focus-ring {
+    @apply focus-visible:shadow-[0_0_0_4px_rgba(127,19,236,0.35)];
+}
+
+@utility focus-ring-light {
+    @apply focus-visible:shadow-[0_0_0_4px_rgba(255,255,255,0.45)];
 }

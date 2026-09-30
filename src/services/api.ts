@@ -1,4 +1,4 @@
-import { ContactFormValues, SendMessageResult } from '../types/contact';
+import type { ContactFormValues, SendMessageResult } from '../types/contact';
 
 const apiURL = 'https://formspree.io/f/mdkdyywe';
 

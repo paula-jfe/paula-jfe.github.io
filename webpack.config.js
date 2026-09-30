@@ -34,6 +34,12 @@ module.exports = {
         compress: true,
         historyApiFallback: true,
     },
+    // Size budget for the single bundle (React + React Router + app + CSS): ~352 KiB minified,
+    // ~105 KiB gzipped over the wire. Warn if it grows past 400 KiB instead of webpack's generic 244 KiB.
+    performance: {
+        maxAssetSize: 400 * 1024,
+        maxEntrypointSize: 400 * 1024,
+    },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },

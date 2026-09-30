@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import Icon, { IconName } from './Icon';
+import Icon, { type IconName } from './Icon';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'onDark';
 

@@ -11,6 +11,7 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
+        "verbatimModuleSyntax": true,
         "types": ["jest", "node"]
     },
     "include": ["src/**/*"]
@@ -22,6 +23,7 @@
 // The "jsx" option specifies the JSX code generation mode.
 // "module": "esnext" + "moduleResolution": "bundler" match how webpack resolves imports (TypeScript 6+ deprecates "node").
 // "types" lists the global typings explicitly (TypeScript 6+ no longer loads every @types package): Jest globals and Node (util, used by jest.setup.ts).
+// "verbatimModuleSyntax" requires `import type` for type-only imports, so Babel removes them safely.
 // TypeScript only type-checks here (npm run typecheck): Babel and webpack emit the bundle, so there is no outDir.
 // The "esModuleInterop" option enables emit interoperability between CommonJS and ES Modules.
 // The "skipLibCheck" option skips type checking of declaration files.
