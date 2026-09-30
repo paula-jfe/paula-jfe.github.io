@@ -1,9 +1,15 @@
+const fs = require('fs');
 const path = require('path');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 console.log(`Running in ${isDevelopment ? 'development' : 'production'} mode`);
+
+const caseStudySlugs = fs
+    .readdirSync(path.resolve(__dirname, 'src/data/caseStudies'))
+    .filter((file) => file.endsWith('.ts') && file !== 'index.ts')
+    .map((file) => file.replace(/\.ts$/, ''));
 
 const htmlOptions = {
     template: './public/index.html',
@@ -82,8 +88,8 @@ module.exports = {
         // GitHub Pages serves 404.html for unknown paths: shipping the app there lets
         // deep links such as /work/brightfield-solar boot the client-side router.
         new HtmlWebpackPlugin({ ...htmlOptions, filename: '404.html' }),
-        // Real entry point for the case study so the route answers 200 (not 404) on GitHub Pages.
-        new HtmlWebpackPlugin({ ...htmlOptions, filename: 'work/brightfield-solar/index.html' }),
+        // One real entry per case study (src/data/caseStudies/<slug>.ts) so /work/<slug> answers 200 on GitHub Pages.
+        ...caseStudySlugs.map((slug) => new HtmlWebpackPlugin({ ...htmlOptions, filename: `work/${slug}/index.html` })),
         isDevelopment && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean),
 };

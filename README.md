@@ -8,7 +8,7 @@ Personal portfolio at **https://paula-jfe.github.io/**, designed in Figma and bu
 -   **Responsive** desktop, tablet and mobile layouts, including an accessible mobile menu.
 -   **Accessible (WCAG 2.2 AA)**: skip link, landmarks, one `h1` per page, visible focus rings, `aria-current` on the active section, reduced-motion support, 48px touch targets, contrast-checked colors (audited with axe-core).
 -   **Contact form edge cases**: inline validation (on blur and submit), error summary, character limit, sending state that blocks double submits, server error, offline, rate limit (HTTP 429), honeypot anti-spam and an announced success state. Messages go through [Formspree](https://formspree.io).
--   **Case study route** (`/work/brightfield-solar`) with GitHub Pages–friendly routing (static entry + `404.html` fallback).
+-   **Reusable case study page**: `CaseStudy` renders any project from data (`src/data/caseStudies/<slug>.ts`, typed by `CaseStudyData`). It lives at `/work/<slug>`, and webpack creates a static entry per data file for GitHub Pages (plus a `404.html` fallback).
 -   **Self-hosted fonts**: Spline Sans, Roboto and Outfit from Google Fonts, converted to WOFF2 in `src/assets/fonts` (SIL OFL 1.1 licenses included). No third-party font requests.
 
 ## Tech stack
@@ -40,7 +40,9 @@ src/
     ui/        Button, FormField, Icon, ProjectCard, SectionHeader, StatusBadge
   data/        content.ts (all copy, projects, skills and testimonials)
   hooks/       useActiveSection
-  pages/       Home, CaseBrightfield, NotFound
+  components/case-study/  CaseStudy (reusable case study template)
+  data/caseStudies/       one file per case study + index.ts registry
+  pages/       Home, CaseStudyPage (/work/:slug), NotFound
   services/    api.ts (Formspree)
 ```
 

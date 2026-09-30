@@ -68,6 +68,21 @@ describe('App routing and home page', () => {
         expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Crafting Digital');
     });
 
+    it('renders case studies from data: sections, numbered cards and figure caption', () => {
+        renderApp('/work/brightfield-solar');
+        expect(document.title).toBe('Brightfield Solar case study · Jessica Ladislau');
+        ['One question before anything else', 'Answer first, then earn trust', 'What I’d measure next'].forEach(
+            (name) => expect(screen.getByRole('region', { name })).toBeInTheDocument(),
+        );
+        expect(screen.getByText('The estimate updates live', { exact: false })).toBeInTheDocument();
+        expect(screen.getByRole('heading', { name: 'Savings simulator' })).toBeInTheDocument();
+    });
+
+    it('shows the 404 page for an unknown case study slug', () => {
+        renderApp('/work/does-not-exist');
+        expect(screen.getByRole('heading', { name: 'This page doesn’t exist.' })).toBeInTheDocument();
+    });
+
     it('shows a friendly 404 for unknown routes', async () => {
         renderApp('/nope');
         expect(screen.getByRole('heading', { name: 'This page doesn’t exist.' })).toBeInTheDocument();

@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from 'react-router';
 
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
-import CaseBrightfield from './pages/CaseBrightfield';
+import CaseStudyPage from './pages/CaseStudyPage';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
@@ -38,7 +38,7 @@ const App: React.FC = () => (
         <main id="main" tabIndex={-1} className="focus:outline-hidden">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/work/brightfield-solar" element={<CaseBrightfield />} />
+                <Route path="/work/:slug" element={<CaseStudyPage />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </main>

@@ -17,7 +17,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                     : 'border-brand/10'
             }`}
         >
-            <div className="aspect-[16/10] w-full overflow-hidden bg-line">
+            <div className="aspect-[16/10] w-full overflow-hidden border-b border-line bg-line">
                 <img
                     src={cover}
                     alt={coverAlt}
