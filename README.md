@@ -23,7 +23,7 @@ Personal portfolio at **https://paula-jfe.github.io/**, designed in Figma and bu
 ```bash
 git clone https://github.com/paula-jfe/paula-jfe.github.io.git
 cd paula-jfe.github.io
-npm install        # requires Node.js 22.22+ (or 24.11+)
+npm install        # requires Node.js 22.22.2+ (or 24.15+)
 npm start          # dev server on http://localhost:3000
 npm test           # unit tests with coverage
 npm run typecheck  # TypeScript check
