@@ -88,6 +88,13 @@ describe('App routing and home page', () => {
         ).toBeInTheDocument();
     });
 
+    it('links to Behance from the hero and the footer', () => {
+        renderApp('/');
+        const links = screen.getAllByRole('link', { name: /Behance/ });
+        expect(links).toHaveLength(2);
+        links.forEach((link) => expect(link).toHaveAttribute('href', 'https://www.behance.net/jladislau'));
+    });
+
     it('offers the resume as a download', () => {
         renderApp('/');
         expect(screen.getByRole('link', { name: 'Download resume' })).toHaveAttribute(

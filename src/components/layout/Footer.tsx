@@ -57,6 +57,16 @@ const Footer: React.FC = () => (
                             GitHub<span className="sr-only"> (opens in a new tab)</span>
                         </a>
                     </li>
+                    <li>
+                        <a
+                            href={SOCIAL_LINKS.behance}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`${linkClasses} text-body-sm font-bold uppercase tracking-[0.06em]`}
+                        >
+                            Behance<span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

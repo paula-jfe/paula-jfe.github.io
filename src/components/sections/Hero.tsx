@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SOCIAL_LINKS } from '../../data/content';
 import Button from '../ui/Button';
-import { GitHubIcon, LinkedInIcon } from '../ui/Icon';
+import { BehanceIcon, GitHubIcon, LinkedInIcon } from '../ui/Icon';
 import HeroVisual from './HeroVisual';
 
 const socialClasses =
@@ -84,6 +84,18 @@ const Hero: React.FC = () => (
                     >
                         <GitHubIcon size={16} />
                         GitHub
+                        <span className="sr-only">(opens in a new tab)</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href={SOCIAL_LINKS.behance}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={socialClasses}
+                    >
+                        <BehanceIcon size={16} />
+                        Behance
                         <span className="sr-only">(opens in a new tab)</span>
                     </a>
                 </li>

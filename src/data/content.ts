@@ -23,6 +23,7 @@ export const EMAIL = 'paula.jfe@gmail.com';
 export const SOCIAL_LINKS = {
     linkedin: 'https://www.linkedin.com/in/jessica-ladislau',
     github: 'https://github.com/paula-jfe',
+    behance: 'https://www.behance.net/jladislau',
 } as const;
 
 export const NAV_LINKS = [
