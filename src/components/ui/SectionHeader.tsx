@@ -14,10 +14,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ id, kicker, title, descri
             {kicker}
         </span>
         <h2 id={id} className="text-heading-1 font-bold tracking-[-0.02em] text-ink">
+            {/* Parts are joined with a space outside the spans, so every accessible-name algorithm keeps it. */}
             {title.map((part, index) => (
-                <span key={index} className={part.highlight ? 'text-brand' : undefined}>
-                    {part.text}
-                </span>
+                <React.Fragment key={index}>
+                    {index > 0 && ' '}
+                    <span className={part.highlight ? 'text-brand' : undefined}>{part.text}</span>
+                </React.Fragment>
             ))}
         </h2>
         {description && <p className="max-w-[640px] text-body-lg text-muted">{description}</p>}

@@ -10,9 +10,9 @@ const Process: React.FC = () => (
                 id="process-title"
                 kicker="My process"
                 title={[
-                    { text: 'How I Turn ' },
+                    { text: 'How I Turn' },
                     { text: 'Ideas', highlight: true },
-                    { text: ' Into ' },
+                    { text: 'Into' },
                     { text: 'Interfaces', highlight: true },
                 ]}
                 description="A lean, AI-assisted workflow that takes a project from the first question to real results, without losing craft along the way."

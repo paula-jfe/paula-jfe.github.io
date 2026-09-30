@@ -47,5 +47,10 @@
     },
     "engines": {
         "node": "^22.22.0 || >=24.11.0"
+    },
+    "overrides": {
+        "@babel/core": "$@babel/core",
+        "jsdom": "30.1.1",
+        "test-exclude": "8.0.0"
     }
 }

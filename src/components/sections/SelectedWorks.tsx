@@ -10,7 +10,7 @@ const SelectedWorks: React.FC = () => (
             <SectionHeader
                 id="work-title"
                 kicker="Selected works"
-                title={[{ text: 'Things I’ve designed ' }, { text: '& built', highlight: true }]}
+                title={[{ text: 'Things I’ve designed' }, { text: '& built', highlight: true }]}
                 description="Websites, brands and products I designed and built end to end, from the first sketch to production code."
             />
             <ul className="grid gap-4 md:grid-cols-2 md:gap-6">

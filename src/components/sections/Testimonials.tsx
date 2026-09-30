@@ -16,7 +16,7 @@ const Testimonials: React.FC = () => (
             <SectionHeader
                 id="testimonials-title"
                 kicker="Testimonials"
-                title={[{ text: 'What people ' }, { text: 'say', highlight: true }, { text: ' about me' }]}
+                title={[{ text: 'What people' }, { text: 'say', highlight: true }, { text: 'about me' }]}
                 description="Words from engineers, product managers and leaders I have worked with."
             />
             <ul className="grid gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
