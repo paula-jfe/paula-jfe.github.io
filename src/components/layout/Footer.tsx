@@ -2,9 +2,9 @@ import React from 'react';
 
 import { FOOTER_LINKS, SOCIAL_LINKS } from '../../data/content';
 import SectionLink from './SectionLink';
+import { textLinkClasses } from '../ui/textLink';
 
-const linkClasses =
-    'rounded-xs px-0.5 text-body font-semibold text-muted transition-colors duration-200 hover:text-brand hover:underline underline-offset-4 focus-ring';
+const linkClasses = `px-0.5 text-body font-semibold ${textLinkClasses()}`;
 
 const Footer: React.FC = () => (
     <footer className="bg-surface-alt pb-10 pt-6 md:pb-12">

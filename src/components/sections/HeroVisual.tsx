@@ -1,10 +1,32 @@
 import React from 'react';
 
-import portrait from '../../assets/pictures/jessica.jpg';
-import Icon from '../ui/Icon';
+import illustration from '../../assets/pictures/jessica-illustration.webp';
+import portrait from '../../assets/pictures/jessica.webp';
+import Icon, { type IconName } from '../ui/Icon';
+
+interface BadgeProps {
+    icon: IconName;
+    kicker: string;
+    label: string;
+    className: string;
+}
+
+const Badge: React.FC<BadgeProps> = ({ icon, kicker, label, className }) => (
+    <div className={`absolute flex items-center gap-3 rounded-md bg-white p-4 shadow-badge ${className}`}>
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-yellow text-ink">
+            <Icon name={icon} size={22} />
+        </span>
+        <span className="flex flex-col">
+            <span className="text-caption font-bold tracking-[-0.02em] text-muted">{kicker}</span>
+            <span className="text-body-lg font-bold uppercase leading-7 text-brand">{label}</span>
+        </span>
+    </div>
+);
 
 /**
  * Asymmetrical portrait composition from the Figma hero (489 × 608 artboard).
+ * Like the "Main Visual Element" prototype, it alternates every 3s between the
+ * Engineer (photo) and Designer (illustration) variants with a 1s cross-fade.
  * The artboard keeps its desktop geometry and is scaled down on small screens.
  */
 const HeroVisual: React.FC = () => (
@@ -41,23 +63,29 @@ const HeroVisual: React.FC = () => (
                         width={416}
                         height={506}
                         fetchPriority="high"
-                        className="h-[506px] w-[416px] max-w-none object-cover"
+                        className="h-[506px] w-[416px] max-w-none animate-hero-first object-cover"
+                    />
+                    <img
+                        src={illustration}
+                        alt=""
+                        width={386}
+                        height={546}
+                        className="absolute left-[19px] top-1 h-[546px] w-[386px] max-w-none animate-hero-second opacity-0"
                     />
                 </div>
 
-                <div className="absolute left-[-90px] top-[130px] flex items-center gap-3 rounded-md bg-white p-4 shadow-badge">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-yellow text-ink">
-                        <Icon name="code" size={22} />
-                    </span>
-                    <span className="flex flex-col">
-                        <span className="text-caption font-bold uppercase tracking-[-0.02em] text-muted">
-                            Design
-                        </span>
-                        <span className="text-body-lg font-bold uppercase leading-7 text-brand">
-                            Engineer
-                        </span>
-                    </span>
-                </div>
+                <Badge
+                    icon="code"
+                    kicker="software"
+                    label="Engineer"
+                    className="left-[-90px] top-[130px] animate-hero-badge-first"
+                />
+                <Badge
+                    icon="palette"
+                    kicker="UI / UX"
+                    label="Designer"
+                    className="left-[306px] top-[378px] animate-hero-badge-second opacity-10"
+                />
 
                 <span
                     aria-hidden="true"

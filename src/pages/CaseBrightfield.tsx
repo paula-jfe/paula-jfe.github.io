@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router';
 
-import desktopHero from '../assets/case-brightfield/desktop-hero.jpg';
-import mobileHero from '../assets/case-brightfield/mobile-hero.jpg';
-import mobileSimulator from '../assets/case-brightfield/mobile-simulator.jpg';
-import simulator from '../assets/case-brightfield/simulator.jpg';
+import desktopHero from '../assets/case-brightfield/desktop-hero.webp';
+import mobileHero from '../assets/case-brightfield/mobile-hero.webp';
+import mobileSimulator from '../assets/case-brightfield/mobile-simulator.webp';
+import simulator from '../assets/case-brightfield/simulator.webp';
 import Button from '../components/ui/Button';
 import Icon from '../components/ui/Icon';
 import StatusBadge from '../components/ui/StatusBadge';
+import { textLinkClasses } from '../components/ui/textLink';
 
 export const LIVE_URL = 'https://brightfieldsolar.vercel.app/phoenix-az';
 
@@ -77,7 +78,7 @@ const CaseBrightfield: React.FC = () => {
             <header className="container-content flex flex-col gap-6 pb-12 pt-[calc(var(--header-height)+40px)] md:pb-16 md:pt-[calc(var(--header-height)+64px)] xl:pt-[calc(var(--header-height)+96px)]">
                 <Link
                     to={{ pathname: '/', hash: '#work' }}
-                    className="inline-flex w-fit items-center gap-2 rounded-xs text-body font-semibold text-muted transition-colors hover:text-ink focus-ring"
+                    className={`inline-flex w-fit items-center gap-2 text-body font-semibold ${textLinkClasses()}`}
                 >
                     <Icon name="arrowLeft" size={18} />
                     All projects

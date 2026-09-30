@@ -23,11 +23,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                     alt={coverAlt}
                     loading="lazy"
                     decoding="async"
-                    width={1200}
-                    height={750}
-                    className={`h-full w-full object-cover transition-transform duration-500 ease-out ${
-                        interactive ? 'group-hover:scale-[1.03]' : ''
-                    }`}
+                    width={1440}
+                    height={900}
+                    className="h-full w-full object-cover object-top"
                 />
             </div>
             <div className="flex flex-1 flex-col gap-3 p-6 md:p-7">

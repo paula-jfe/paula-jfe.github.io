@@ -4,9 +4,9 @@ import { SOCIAL_LINKS } from '../../data/content';
 import Button from '../ui/Button';
 import { BehanceIcon, GitHubIcon, LinkedInIcon } from '../ui/Icon';
 import HeroVisual from './HeroVisual';
+import { textLinkClasses } from '../ui/textLink';
 
-const socialClasses =
-    'inline-flex items-center gap-2 rounded-xs px-1 py-1 text-body-sm font-bold uppercase tracking-[0.08em] text-muted transition-colors duration-200 hover:text-brand focus-ring';
+const socialClasses = `inline-flex items-center gap-2 px-1 py-1 text-body-sm font-bold uppercase tracking-[0.08em] ${textLinkClasses()}`;
 
 const Hero: React.FC = () => (
     <section

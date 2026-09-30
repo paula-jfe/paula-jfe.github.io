@@ -75,14 +75,36 @@ module.exports = {
                 float: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 badge: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
             },
+            // Hero "Main Visual Element" prototype: hold 3s, cross-fade 1.02s (Smart Animate, Gentle),
+            // hold 3s, cross-fade back. 8.04s per loop: 37.3% = 3s, 50% = 4.02s, 87.3% = 7.02s.
             keyframes: {
                 marquee: {
                     from: { transform: 'translateX(0)' },
                     to: { transform: 'translateX(-50%)' },
                 },
+                'hero-first': {
+                    '0%, 37.3%, 100%': { opacity: '1' },
+                    '50%, 87.3%': { opacity: '0' },
+                },
+                'hero-second': {
+                    '0%, 37.3%, 100%': { opacity: '0' },
+                    '50%, 87.3%': { opacity: '1' },
+                },
+                'hero-badge-first': {
+                    '0%, 37.3%, 100%': { opacity: '1' },
+                    '50%, 87.3%': { opacity: '0.1' },
+                },
+                'hero-badge-second': {
+                    '0%, 37.3%, 100%': { opacity: '0.1' },
+                    '50%, 87.3%': { opacity: '1' },
+                },
             },
             animation: {
                 marquee: 'marquee 40s linear infinite',
+                'hero-first': 'hero-first 8.04s cubic-bezier(0.45, 0, 0.25, 1) infinite',
+                'hero-second': 'hero-second 8.04s cubic-bezier(0.45, 0, 0.25, 1) infinite',
+                'hero-badge-first': 'hero-badge-first 8.04s cubic-bezier(0.45, 0, 0.25, 1) infinite',
+                'hero-badge-second': 'hero-badge-second 8.04s cubic-bezier(0.45, 0, 0.25, 1) infinite',
             },
         },
     },

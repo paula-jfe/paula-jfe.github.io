@@ -6,13 +6,11 @@ import { useActiveSection } from '../../hooks/useActiveSection';
 import { buttonClasses } from '../ui/Button';
 import Icon from '../ui/Icon';
 import SectionLink from './SectionLink';
+import { textLinkClasses } from '../ui/textLink';
 
 const sectionIds = NAV_LINKS.map((link) => link.id);
 
-const navLinkClasses = (active: boolean) =>
-    `group relative flex flex-col items-center gap-1.5 rounded-xs px-1 py-1 font-sans text-body font-semibold transition-colors duration-200 focus-ring ${
-        active ? 'text-brand' : 'text-muted hover:text-ink'
-    }`;
+const navLinkClasses = (active: boolean) => `px-1 py-1 font-sans text-body font-semibold ${textLinkClasses({ active })}`;
 
 const Header: React.FC = () => {
     const { pathname } = useLocation();
@@ -62,12 +60,6 @@ const Header: React.FC = () => {
                                         aria-current={isActive ? 'location' : undefined}
                                     >
                                         {link.label}
-                                        <span
-                                            aria-hidden="true"
-                                            className={`h-0.5 w-4 rounded-full bg-brand transition-opacity duration-200 ${
-                                                isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-30'
-                                            }`}
-                                        />
                                     </SectionLink>
                                 </li>
                             );
@@ -97,17 +89,21 @@ const Header: React.FC = () => {
                 className="border-t border-line bg-surface-page px-5 pb-6 pt-2 shadow-card md:hidden"
             >
                 <ul className="flex flex-col">
-                    {NAV_LINKS.map((link) => (
-                        <li key={link.id}>
-                            <SectionLink
-                                sectionId={link.id}
-                                onClick={() => setOpen(false)}
-                                className="flex h-14 items-center border-b border-line font-display text-heading-5 font-bold text-ink transition-colors hover:text-brand focus-ring"
-                            >
-                                {link.label}
-                            </SectionLink>
-                        </li>
-                    ))}
+                    {NAV_LINKS.map((link) => {
+                        const isActive = onHome && active === link.id;
+                        return (
+                            <li key={link.id} className="border-b border-line">
+                                <SectionLink
+                                    sectionId={link.id}
+                                    onClick={() => setOpen(false)}
+                                    aria-current={isActive ? 'location' : undefined}
+                                    className={`my-1 flex h-12 items-center font-display text-heading-5 font-bold ${textLinkClasses({ active: isActive })}`}
+                                >
+                                    {link.label}
+                                </SectionLink>
+                            </li>
+                        );
+                    })}
                 </ul>
                 <SectionLink
                     sectionId="contact"

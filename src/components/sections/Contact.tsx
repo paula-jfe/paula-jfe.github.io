@@ -4,9 +4,9 @@ import resume from '../../assets/resume/CV_Jessica_TR.02v.pdf';
 import { EMAIL, SOCIAL_LINKS } from '../../data/content';
 import Button from '../ui/Button';
 import ContactForm from './ContactForm';
+import { textLinkClasses } from '../ui/textLink';
 
-const directLinkClasses =
-    'rounded-xs text-body-lg font-semibold text-white underline-offset-4 transition-colors duration-200 hover:text-accent-yellow hover:underline focus-ring-light break-all';
+const directLinkClasses = `break-all text-body-lg font-semibold ${textLinkClasses({ onDark: true })}`;
 
 const Contact: React.FC = () => (
     <section id="contact" aria-labelledby="contact-title" className="section-y bg-surface-alt px-3 md:px-0">

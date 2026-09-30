@@ -1,7 +1,7 @@
-import brightfieldCover from '../assets/projects/brightfield.jpg';
-import jhrCover from '../assets/projects/jhr-automacom.jpg';
-import leaningCover from '../assets/projects/lean-ing.jpg';
-import webelugaCover from '../assets/projects/webeluga.jpg';
+import brightfieldCover from '../assets/projects/brightfield.webp';
+import jhrCover from '../assets/projects/jhr-automacom.webp';
+import leaningCover from '../assets/projects/lean-ing.webp';
+import webelugaCover from '../assets/projects/webeluga.webp';
 import css from '../assets/icons/css3.svg';
 import dotnet from '../assets/icons/dotnetcore.svg';
 import elastic from '../assets/icons/elastic.svg';
@@ -130,7 +130,7 @@ export const PROJECTS: Project[] = [
         description:
             'A city landing page for a solar installer: instant savings simulator, local crews and a lead form, designed and built mobile-first.',
         cover: brightfieldCover,
-        coverAlt: 'Brightfield Solar cover: dark navy background with a glowing sun and solar panels.',
+        coverAlt: 'Brightfield Solar home page: “Make the most of Phoenix sunshine” next to a house with solar panels at night.',
         caseStudy: '/work/brightfield-solar',
     },
     {
@@ -141,7 +141,7 @@ export const PROJECTS: Project[] = [
         description:
             'Redesign for a Lean training company: editorial website, component library and a 30-post Instagram system with AI imagery.',
         cover: leaningCover,
-        coverAlt: 'Lean-ing cover: deep blue background with the Lean-ing gear logo in green.',
+        coverAlt: 'Lean-ing home page: “Lean thinking for teams that deliver” with two professionals and a Lean terms ticker.',
     },
     {
         slug: 'webeluga',
@@ -151,7 +151,7 @@ export const PROJECTS: Project[] = [
         description:
             'Brand and bilingual website (EN/PT) for an AI & marketing agency, from naming and brand manual to responsive UI.',
         cover: webelugaCover,
-        coverAlt: 'Webeluga website hero: “Automate your business and scale with AI” over a teal gradient.',
+        coverAlt: 'Webeluga home page: “Automate your business and scale with AI” over a teal gradient.',
     },
     {
         slug: 'jhr-automacom',
@@ -161,7 +161,7 @@ export const PROJECTS: Project[] = [
         description:
             'Website for an industrial automation and safety training company: courses, consulting and compliance content.',
         cover: jhrCover,
-        coverAlt: 'JHR Autocom cover: dark technical grid with blue circuit lines.',
+        coverAlt: 'JHR Automacom home page: “Engineering safety and automation excellence for regulated industries” on a dark grid.',
     },
 ];
 
