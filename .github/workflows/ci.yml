@@ -1,19 +1,19 @@
-name: Deploy Portfolio App to GitHub Pages
+name: CI
 
 on:
-    push:
+    pull_request:
         branches:
             - main
 
 concurrency:
-    group: deploy-pages
-    cancel-in-progress: false
+    group: ci-${{ github.ref }}
+    cancel-in-progress: true
 
 permissions:
-    contents: write
+    contents: read
 
 jobs:
-    build-and-deploy:
+    test-and-build:
         runs-on: ubuntu-latest
 
         steps:
@@ -36,9 +36,3 @@ jobs:
 
             - name: Build project
               run: npm run build:prod
-
-            - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v4
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./dist

@@ -23,9 +23,10 @@ Personal portfolio at **https://paula-jfe.github.io/**, designed in Figma and bu
 ```bash
 git clone https://github.com/paula-jfe/paula-jfe.github.io.git
 cd paula-jfe.github.io
-npm install
+npm install        # requires Node.js 22.15+
 npm start          # dev server on http://localhost:3000
 npm test           # unit tests with coverage
+npm run typecheck  # TypeScript check
 npm run build:prod # production build in dist/
 ```
 
@@ -45,4 +46,5 @@ src/
 
 ## Deployment
 
-Pushing to `main` runs the tests, builds the production bundle and publishes `dist/` to GitHub Pages (`.github/workflows/deploy.yml`).
+-   **Pull requests** run the CI workflow (`.github/workflows/ci.yml`): type check, unit tests and production build on Node.js 22.
+-   **Pushing to `main`** runs the same checks and publishes `dist/` to GitHub Pages (`.github/workflows/deploy.yml`).
