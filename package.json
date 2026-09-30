@@ -52,5 +52,11 @@
         "@babel/core": "$@babel/core",
         "jsdom": "30.1.1",
         "test-exclude": "8.0.0"
+    },
+    "allowScripts": {
+        "unrs-resolver": true,
+        "fsevents": true,
+        "@parcel/watcher": true,
+        "core-js-pure": true
     }
 }

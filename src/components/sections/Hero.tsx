@@ -17,19 +17,28 @@ const Hero: React.FC = () => (
         <span
             aria-hidden="true"
             className="pointer-events-none absolute left-0 top-16 -z-10 h-[435px] w-[500px] opacity-60 blur-[80px]"
-            style={{ backgroundImage: 'linear-gradient(135deg, rgba(127,19,236,0.18), rgba(255,215,0,0.12))' }}
+            style={{
+                backgroundImage:
+                    'linear-gradient(135deg, rgba(127,19,236,0.18), rgba(255,215,0,0.12))',
+            }}
         />
         <span
             aria-hidden="true"
             className="pointer-events-none absolute right-0 top-[425px] -z-10 h-[435px] w-[500px] opacity-60 blur-[80px]"
-            style={{ backgroundImage: 'linear-gradient(135deg, rgba(185,64,167,0.14), rgba(119,151,221,0.14))' }}
+            style={{
+                backgroundImage:
+                    'linear-gradient(135deg, rgba(185,64,167,0.14), rgba(119,151,221,0.14))',
+            }}
         />
 
-        <div className="container-content grid items-center gap-10 md:gap-14 xl:grid-cols-[minmax(0,727px)_minmax(0,1fr)] xl:gap-0">
-            <div className="flex flex-col items-start gap-8">
+        <div className="container-content grid grid-cols-1 items-center gap-10 md:gap-14 lg:grid-cols-12 lg:gap-0">
+            <div className="col-span-1 flex min-w-0 flex-col items-start gap-8 lg:col-span-7">
                 <div className="flex flex-col items-start gap-4">
                     <p className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-4 py-1.5 text-caption font-bold uppercase tracking-[0.06em] text-brand">
-                        <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-yellow" />
+                        <span
+                            aria-hidden="true"
+                            className="h-2 w-2 rounded-full bg-accent-yellow"
+                        />
                         Open to new roles &amp; projects
                     </p>
                     <h1
@@ -50,7 +59,13 @@ const Hero: React.FC = () => (
                     <Button href="#work" fullWidth className="sm:w-auto">
                         View my work
                     </Button>
-                    <Button href="#contact" variant="secondary" icon="arrowRight" fullWidth className="sm:w-auto">
+                    <Button
+                        href="#contact"
+                        variant="secondary"
+                        icon="arrowRight"
+                        fullWidth
+                        className="sm:w-auto"
+                    >
                         Get in touch
                     </Button>
                 </div>
@@ -58,7 +73,9 @@ const Hero: React.FC = () => (
                     Previously Software Engineer at Dell Technologies
                 </p>
             </div>
-            <HeroVisual />
+            <div className="col-span-1 min-w-0 lg:col-span-5">
+                <HeroVisual />
+            </div>
         </div>
 
         <div className="mt-8 border-t border-line md:mt-10">

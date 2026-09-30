@@ -14,7 +14,10 @@ interface BadgeProps {
 }
 
 const Badge: React.FC<BadgeProps> = ({ icon, kicker, label, className, textClassName }) => (
-    <div aria-hidden="true" className={`absolute flex items-center gap-3 rounded-md bg-white p-4 shadow-badge ${className}`}>
+    <div
+        aria-hidden="true"
+        className={`absolute flex items-center gap-3 rounded-md bg-white p-4 shadow-badge ${className}`}
+    >
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-yellow text-ink">
             <Icon name={icon} size={22} />
         </span>
