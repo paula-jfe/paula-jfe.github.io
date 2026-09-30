@@ -21,7 +21,7 @@ module.exports = {
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-        '\\.(jpg|jpeg|png|gif|webp|pdf|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
+        '\\.(jpg|jpeg|png|gif|webp|pdf|svg|woff2)$': '<rootDir>/src/__mocks__/fileMock.js',
     },
     testPathIgnorePatterns: ['/node_modules/', '/dist/'],
     testTimeout: 10000,

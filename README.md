@@ -9,7 +9,7 @@ Personal portfolio at **https://paula-jfe.github.io/**, designed in Figma and bu
 -   **Accessible (WCAG 2.2 AA)**: skip link, landmarks, one `h1` per page, visible focus rings, `aria-current` on the active section, reduced-motion support, 48px touch targets, contrast-checked colors (audited with axe-core).
 -   **Contact form edge cases**: inline validation (on blur and submit), error summary, character limit, sending state that blocks double submits, server error, offline, rate limit (HTTP 429), honeypot anti-spam and an announced success state. Messages go through [Formspree](https://formspree.io).
 -   **Case study route** (`/work/brightfield-solar`) with GitHub Pages–friendly routing (static entry + `404.html` fallback).
--   **Self-hosted fonts** (Fontsource): no third-party font requests.
+-   **Self-hosted fonts**: Spline Sans, Roboto and Outfit from Google Fonts, converted to WOFF2 in `src/assets/fonts` (SIL OFL 1.1 licenses included). No third-party font requests.
 
 ## Tech stack
 
