@@ -1,3 +1,6 @@
+// Side-effect stylesheet imports (e.g. import './index.css'), bundled by webpack.
+declare module '*.css';
+
 declare module '*.jpg' {
     const src: string;
     export default src;
